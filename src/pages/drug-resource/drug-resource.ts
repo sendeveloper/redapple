@@ -4,6 +4,9 @@ import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angul
 import { Rest } from '../../providers/rest';
 
 import { ChatPharmacistPage } from '../chat-pharmacist/chat-pharmacist';
+import { QuizPage } from '../quiz/quiz';
+import { VideosPage } from '../videos/videos';
+import { HealthResourcePage } from '../health-resource/health-resource';
 
 @IonicPage()
 @Component({
@@ -13,9 +16,9 @@ import { ChatPharmacistPage } from '../chat-pharmacist/chat-pharmacist';
 export class DrugResourcePage {
   pages = {
     0: ChatPharmacistPage,
-    1: ChatPharmacistPage,
-    2: ChatPharmacistPage,
-    3: ChatPharmacistPage
+    1: QuizPage,
+    2: VideosPage,
+    3: HealthResourcePage
   };
   constructor(public navCtrl: NavController, public navParams: NavParams,
   			public menu: MenuController, public rest: Rest) {
