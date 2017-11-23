@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 
-/**
- * Generated class for the ContactUsPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { Rest } from '../../providers/rest';
 @IonicPage()
 @Component({
   selector: 'page-contact-us',
@@ -14,11 +9,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ContactUsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  			public menu: MenuController, public rest: Rest) {
+  	this.menu = menu;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ContactUsPage');
+    
+  }
+  
+  showMenu() {
+    this.menu.open();
   }
 
 }
