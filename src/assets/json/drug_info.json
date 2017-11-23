@@ -1,6 +1,8 @@
 [
   {
     "title": "Drug Information",
+    "url": "assets/imgs/drug-info-icon.svg",
+    "content": "",
     "data": [
       {
         "title": "Generic Name",  "field": "generic"
@@ -32,18 +34,26 @@
     ]
   },
   {
-    "title": "Side Effects",
-    "data": [
-    ]
-  },
-  {
     "title": "Drug Interactions",
+    "url": "assets/imgs/drug-interactions-icon.svg",
+    "content": "Drug Interactions",
     "data": [
+      {
+        "title": "",  "field": "interact"
+      }
     ]
   },
   {
     "title": "What If?",
+    "url": "assets/imgs/drug-whatif-icon.svg",
+    "content": "What if you are:",
     "data": [
+      {
+        "title": "Pregnant",  "field": "interact"
+      },
+      {
+        "title": "Breast Feeding",  "field": "interact"
+      }
     ]
   }
 ]

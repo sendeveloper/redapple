@@ -3,8 +3,9 @@ import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angul
 
 import { Rest } from '../../providers/rest';
 
-import { DrugImagePage } from '../drug-image/drug-image';
 import { DrugInfoPage } from '../drug-info/drug-info';
+import { DrugImagePage } from '../drug-image/drug-image';
+import { DrugEffectPage } from '../drug-effect/drug-effect';
 import { DrugResourcePage } from '../drug-resource/drug-resource';
 
 @IonicPage()
@@ -30,6 +31,9 @@ export class PrescriptionReviewPage {
   }
   drugImage() {
   	this.navCtrl.push(DrugImagePage);
+  }
+  drugEffect() {
+    this.navCtrl.push(DrugEffectPage);
   }
   drugResource() {
   	this.navCtrl.push(DrugResourcePage);

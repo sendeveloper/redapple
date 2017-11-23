@@ -8,17 +8,20 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content padding *ngIf="info!=null">
 	<div class="spacer" style="height: 19px;"></div>
   <div class="show-list-numbers-and-dots">
     <p>Dev: Display information from the patient-drug-information table</p>
   </div>
-  <div>
-    <img src="assets/imgs/drug-info-icon.svg" style="width: 20%;">
+  <div style="text-align: center;">
+    <img src="{{info[ind]['url']}}" class="imgs" style="width: 30%;">
+    <h3>{{info[ind]['content']}}</h3>
   </div>
   <div class="spacer" style="height: 19px;"></div>
-  <h4>Generic name:</h4>
-  <div class="show-list-numbers-and-dots">
-    <p >display generic name</p>
-  </div>
+  <ng-container *ngFor="let each of info[ind]['data'];let i=index">
+    <h4>{{each.title}}</h4>
+    <div class="show-list-numbers-and-dots">
+      <p>{{each.field}}</p>
+    </div>
+  </ng-container>
 </ion-content>

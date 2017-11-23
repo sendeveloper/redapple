@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar class="bar-assertive" *ngIf="info!=null">
+    <ion-title>Side Effects</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (tap)="showMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+	<div class="spacer" style="height: 19px;"></div>
+  <div>
+    <img src="assets/imgs/drug-sideeffects-icon.svg" class="imgs" style="width: 30%;">
+  </div>
+  <div class="spacer" style="height: 19px;"></div>
+  <h4>Side Effects:</h4>
+  <div class="show-list-numbers-and-dots">
+    <p>display generic name</p>
+  </div>
+</ion-content>
