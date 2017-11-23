@@ -1,0 +1,32 @@
+page-prescription-review {
+	#prescriptionReview-heading{
+		color:#08B7EE;text-align:center;
+	}
+	.item-thumbnail-left .item-inner{
+	    min-height: 100px;
+	    position: relative;
+	    z-index: 2;
+	    padding: 8px 54px 16px 100px;
+	    border: none;
+	    background-color: #fff;
+	}
+	.item-thumbnail-left img
+	{
+	    position: absolute;
+	    top: 10px;
+	    left: 10px;
+	    max-width: 80px;
+	    max-height: 80px;
+	    width: 100%;
+	    height: 100%;
+	}
+	.icon.item-icon {
+		right: 11px;
+		display: flex;
+	    align-items: center;
+	    position: absolute;
+	    top: 0;
+	    height: 100%;
+	    font-size: 32px;
+	}
+}

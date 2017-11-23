@@ -2,32 +2,22 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 
 import { Rest } from '../../providers/rest';
-
-import { PrescriptionReviewPage } from '../prescription-review/prescription-review';
-
 @IonicPage()
 @Component({
-  selector: 'page-prescription-list',
-  templateUrl: 'prescription-list.html',
+  selector: 'page-drug-images',
+  templateUrl: 'drug-images.html',
 })
-export class PrescriptionListPage {
-	scode: string;
-	birthday: string;
+export class DrugImagesPage {
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
   			public menu: MenuController, public rest: Rest) {
   	this.menu = menu;
-  	this.scode = this.navParams.get('code');
-  	this.birthday = this.navParams.get('birthday');
-  }
-
-  ionViewDidLoad() {
-    
   }
   
+  ionViewDidLoad() {
+    // console.log('ionViewDidLoad DrugImagesPage');
+  }
   showMenu() {
     this.menu.open();
-  }
-  goReview() {
-    this.navCtrl.push(PrescriptionReviewPage, {});
   }
 }
