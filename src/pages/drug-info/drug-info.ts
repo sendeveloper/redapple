@@ -2,12 +2,18 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 
 import { Rest } from '../../providers/rest';
+/**
+ * Generated class for the DrugInfoPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
 @IonicPage()
 @Component({
-  selector: 'page-drug-images',
-  templateUrl: 'drug-images.html',
+  selector: 'page-drug-info',
+  templateUrl: 'drug-info.html',
 })
-export class DrugImagesPage {
+export class DrugInfoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
   			public menu: MenuController, public rest: Rest) {
@@ -15,9 +21,10 @@ export class DrugImagesPage {
   }
   
   ionViewDidLoad() {
-    // console.log('ionViewDidLoad DrugImagesPage');
+
   }
   showMenu() {
     this.menu.open();
   }
+
 }

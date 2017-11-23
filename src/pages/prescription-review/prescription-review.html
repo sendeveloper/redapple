@@ -13,7 +13,7 @@
   <h4 id="prescriptionReview-heading">Review (generic name)</h4>
   <div class="spacer" style="width: 300px;"></div>
   <ion-list id="prescriptionReview-list1" class="manual-list-fullwidth maxwidth600">
-    <ion-item class="item-thumbnail-left assertive" (click)="drugItem()">
+    <ion-item class="item-thumbnail-left assertive" (click)="drugInfo(0)">
       <img src="assets/imgs/drug_info_thumb.png">
       <h2>
       	Drug Information
@@ -21,35 +21,35 @@
         <ion-icon name="arrow-forward"></ion-icon>
       </h2>
     </ion-item>
-    <ion-item class="item-thumbnail-left calm" (click)="drugItem()">
+    <ion-item class="item-thumbnail-left calm" (click)="drugImage()">
       <img src="assets/imgs/drug_image_thumb.png">
       <h2>Drug Images
         <p style="white-space:normal;">How the medicine looks like</p>
         <ion-icon name="arrow-forward"></ion-icon>
       </h2>
     </ion-item>
-    <ion-item class="item-thumbnail-left royal" (click)="drugItem()">
+    <ion-item class="item-thumbnail-left royal" (click)="drugInfo(1)">
       <img src="assets/imgs/drug-side-effects-thumb.png">
       <h2>Side Effects
         <p>Possible side effects</p>
         <ion-icon name="arrow-forward"></ion-icon>
       </h2>
     </ion-item>
-    <ion-item class="item-thumbnail-left energized" (click)="drugItem()">
+    <ion-item class="item-thumbnail-left energized" (click)="drugInfo(2)">
       <img src="assets/imgs/drug-interaction-thumb.png">
       <h2>Drug Interactions
         <p style="white-space:normal;">Possible drug interactions</p>
         <ion-icon name="arrow-forward"></ion-icon>
       </h2>
     </ion-item>
-    <ion-item class="item-thumbnail-left positive" (click)="drugItem()">
+    <ion-item class="item-thumbnail-left positive" (click)="drugInfo(3)">
       <img src="assets/imgs/drug_what_if_thumb.png">
       <h2>What If?
         <p style="white-space:normal;">You are pregnant, breastfeeding, diabetic ...</p>
         <ion-icon name="arrow-forward"></ion-icon>
       </h2>
     </ion-item>
-    <ion-item class="item-thumbnail-left balanced" (click)="drugItem()">
+    <ion-item class="item-thumbnail-left balanced" (click)="drugResource()">
       <img src="assets/imgs/drug_resources_thumb.png">
       <h2>Resources
         <p>More useful information</p>
