@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar class="bar-assertive">
+    <ion-title>Date Of Birth</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (tap)="showMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+	<div class="spacer" style="height: 20px;"></div>
+    <div class="maxwidth450">
+      <div class="maxwidth300">
+        <div class="ovalBorderRightGrey">
+          <span class="font36 red-text">WARNING</span>
+          <br>
+          <span>This prescription is for
+            <span class="font24">(patient_first_name).</span>
+          </span>
+        </div>
+        <div class="right">
+          <img src="assets/imgs/pharm-amanda-grey.svg" alt="Pharmacist Amanda" width="80">
+        </div>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+
+      <div class="spacer" style="height: 27px;"></div>
+      <p class="center"> Enter (patient_first_name)'s date of birth to confirm and meet our privacy policy.</p>
+
+      <div>
+      	<label class="item item-input" for="birthday">DOB:</label>
+      	<ion-input type="date" id="birthday" placeholder="Date Of Birth" [(ngModel)]="birthday"></ion-input>
+      </div>
+      <a (click)="getList()" class="button button-positive button-block button-clear font24">Here You Go</a>
+
+      <h3>Dev:</h3>
+      <ul>
+        <li>1. Echo patient_first_name</li>
+        <li>2. Compare user date-of-birth input with date_of_birth from the patient_interactivity_code table. If there is a match continue, else show message: "Date of birth does not match Rx review code. Please contact the pharmacy."</li>
+        <li>3. If there is a match, SELECT generic_name from drug_properties table where patient_interactivity_code.ndc1,2,3.. = drug_properties.ndc</li>
+      </ul>
+    </div>
+</ion-content>

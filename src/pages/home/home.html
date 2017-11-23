@@ -1,17 +1,31 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar class="bar-assertive">
     <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (tap)="showMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let c of countries">
-      <ion-avatar item-left>
-        <img src="{{c.flag}}">
-      </ion-avatar>
-      <h2>{{c.name}}</h2>
-      <p>Capital: {{c.capital}}, Region: {{c.region}}</p>
-    </ion-item>
-  </ion-list>
+  <div class="spacer" style="height: 32px;"></div>
+  <div>
+    <img src="assets/imgs/RAIP-logo-1000.png" class="img-logo imgs">
+  </div>
+  <h3 class="logo-text">Red Apple Interactive Pharmacy</h3>
+  <div class="logo-desc">
+    <p>America's first interactive retail pharmacy</p>
+  </div>
+  <div class="spacer" style="eight: 17px;"></div>
+  <div>
+    <img src="assets/imgs/ipad-user-man.svg" class="imgs img-user">
+  </div>
+  <div class="spacer" style="height: 17px;"></div>
+  <h1 id="home-heading">Prescription Reviewer</h1>
+  <div id="home-markdown">
+    <p>To review the prescription the pharmacy is currently filling for you, please continue.</p>
+    <a id="home-button10" (click)="goNext()" class="button button-assertive button-block button-clear btn-flat">Continue</a>
+  </div>
 </ion-content>

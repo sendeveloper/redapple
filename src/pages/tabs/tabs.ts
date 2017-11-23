@@ -10,7 +10,7 @@ export class TabsPage {
   tab1Root: string = 'HomePage';
   tab2Root: string = 'AboutPage';
   tab3Root: string = 'ContactPage';
-
+  tab4Root: string = 'AboutPage';
   constructor() {
 
   }

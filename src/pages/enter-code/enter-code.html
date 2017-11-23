@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar class="bar-assertive">
+    <ion-title>Enter Code</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (tap)="showMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+	<div class="spacer" style="height: 10px;"></div>
+	<div class="maxwidth450">
+	  <div class="maxwidth300">
+	    <div class="ovalBorderRightGrey">
+	      <span class="font18">Enter the Rx review Code you recieved via TEXT.</span>
+	      <br>
+	    </div>
+	    <div class="right">
+	      <img src="assets/imgs/pharm-amanda-grey.svg" alt="Pharmacist Amanda" width="80">
+	    </div>
+	    <p>&nbsp;</p>
+	    <p>&nbsp;</p>
+	    <p>&nbsp;</p>
+	  </div>
+	  <div class="spacer" style="height: 20px;"></div>
+	  <div>
+	  	<ion-input type="text" placeholder="Enter Code" [(ngModel)]="scode"></ion-input>
+	  	<div class="button-bar">
+		    <a (click)="goCancel()" class="button button-stable button-clear">Cancel</a>
+		    <a (click)="goContinue()" class="button button-assertive button-outline">Continue</a>
+		  </div>
+		</div>
+	  <div class="spacer" style="height: 50px;"></div>
+	  <h3>Developer:</h3>
+	  <ul>
+	    <li>1. User will input code sent to user's cell-phone</li>
+	    <li>2. On tapping continue, select all from patient-interactivity-code table (rap_pharmacy db) where interactive_code = user input. If code matches user input continue, else show message: "Code not found. Please check code or contact the pharmacy
+	      for new Rx review code."</li>
+	  </ul>
+	</div>
+</ion-content>

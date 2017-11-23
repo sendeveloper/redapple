@@ -1,1 +1,17 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-nav [root]="rootPage" #content></ion-nav>
+
+<ion-menu side="right" [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>MENU</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="outer-content" overflow-scroll='true'>
+    <ion-list class="menu-lists">
+      <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
+        <ion-icon item-left [name]="p.icon" [color]="primary"></ion-icon>
+        <h3>{{p.description}}</h3>
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>

@@ -1,3 +1,35 @@
 page-home {
-
+	.img-logo{
+		width: 20%;
+	}
+	.logo-text{
+		color:#F44336;text-align:center;
+	}
+	.logo-desc{
+		text-align: center;
+		p{
+			color:#666666;
+		}
+	}
+	.imgs{
+		display: block; height: auto; margin-left: auto; margin-right: auto;
+	}
+	.img-user{
+		width: 50%;
+	}
+	.spacer{
+		width: 300px;
+	}
+	#home-heading{
+		color:#2979FF;text-align:center;
+	}
+	#home-markdown{
+		text-align:center;
+		p{
+			color:#000000;
+		}
+		#home-button10{
+			font-size:16px;
+		}
+	}
 }
