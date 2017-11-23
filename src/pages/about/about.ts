@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+
+import { Rest } from '../../providers/rest';
 
 @IonicPage()
 @Component({
@@ -9,8 +10,17 @@ import { NavController } from 'ionic-angular';
 })
 export class AboutPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  			public menu: MenuController, public rest: Rest) {
+  	this.menu = menu;
+  }
 
+  ionViewDidLoad() {
+    
+  }
+  
+  showMenu() {
+    this.menu.open();
   }
 
 }
