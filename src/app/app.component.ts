@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+import { TermsOfUsePage } from '../pages/terms-of-use/terms-of-use';
 import { AboutPage } from '../pages/about/about';
 
 export interface PageInterface {
@@ -21,7 +22,7 @@ export class MyApp {
   rootPage:any = 'TabsPage';
   appPages: PageInterface[] = [
         { title: 'Home', description: 'Home', component: HomePage, icon: 'home' },
-        { title: 'Terms', description: 'Terms of Use', component: HomePage, icon: 'md-contract' },
+        { title: 'Terms', description: 'Terms of Use', component: TermsOfUsePage, icon: 'md-contract' },
         { title: 'Policy', description: 'Privacy Policy', component: HomePage, icon: 'eye-off' },
         { title: 'Feedback', description: 'Feed back', component: HomePage, icon: 'star' },
         { title: 'About', description: 'About page', component: AboutPage, icon: 'information-circle' }

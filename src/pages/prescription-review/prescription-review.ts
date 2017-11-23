@@ -21,7 +21,7 @@ export class PrescriptionReviewPage {
   }
 
   ionViewDidLoad() {
-    // console.log('ionViewDidLoad PrescriptionReviewPage');
+
   }
   showMenu() {
     this.menu.open();
