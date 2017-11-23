@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-navbar class="bar-assertive">
-    <ion-title>Drug Images</ion-title>
+  <ion-navbar class="bar-assertive" *ngIf="info!=null">
+    <ion-title>{{info[ind]['title']}}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (tap)="showMenu()">
         <ion-icon name="menu"></ion-icon>

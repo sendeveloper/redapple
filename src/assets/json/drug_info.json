@@ -1,0 +1,49 @@
+[
+  {
+    "title": "Drug Information",
+    "data": [
+      {
+        "title": "Generic Name",  "field": "generic"
+      },
+      {
+        "title": "Brand Name",  "field": "generic"
+      },
+      {
+        "title": "Drug Class",  "field": "generic"
+      },
+      {
+        "title": "This is used for",  "field": "generic"
+      },
+      {
+        "title": "Drug dosage",  "field": "generic"
+      },
+      {
+        "title": "How to take",  "field": "generic"
+      },
+      {
+        "title": "Missed Dose",  "field": "generic"
+      },
+      {
+        "title": "Over dose",  "field": "generic"
+      },
+      {
+        "title": "Pharmacist take",  "field": "take"
+      }
+    ]
+  },
+  {
+    "title": "Side Effects",
+    "data": [
+    ]
+  },
+  {
+    "title": "Drug Interactions",
+    "data": [
+    ]
+  },
+  {
+    "title": "What If?",
+    "data": [
+    ]
+  }
+]

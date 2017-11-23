@@ -1,18 +1,35 @@
-<!--
-  Generated template for the DrugResourcePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>drug-resource</ion-title>
+  <ion-navbar class="bar-assertive">
+    <ion-title>Resources</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (tap)="showMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-
+	<div class="spacer" style="height: 17px;"></div>
+  <div>
+    <img src="assets/imgs/drug-resources-icon.svg" style="width: 30%;">
+  </div>
+  <div class="spacer" style="height: 33px;"></div>
+  <ion-list>
+    <ion-item class="item-thumbnail-left" (click)="transit(0)">
+      <h2>Chat with pharmacist</h2>
+      <p>Questions? Ask the pharmacist.</p>
+    </ion-item>
+    <ion-item class="item-thumbnail-left" (click)="transit(1)">
+      <h2>Test your knowledge</h2>
+      <p>How much do you know about this medication?</p>
+    </ion-item>
+    <ion-item class="item-thumbnail-left" (click)="transit(2)">
+      <h2>Videos</h2>
+      <p>Watch videos on how best to use this medicine</p>
+    </ion-item>
+    <ion-item class="item-thumbnail-left" (click)="transit(3)">
+      <h2>FDA, Medline, Links</h2>
+    </ion-item>
+  </ion-list>
 </ion-content>
