@@ -10,13 +10,13 @@
 </ion-header>
 <ion-content padding>
   <div class="spacer" style="height: 20px;"></div>
-  <div class="maxwidth450">
+  <div class="maxwidth450" *ngIf="data!=null">
     <div class="maxwidth300">
       <div class="ovalBorderRightGrey">
         <span class="font36 red-text">WARNING</span>
         <br>
         <span>This prescription is for
-          <span class="font24">(patient_first_name).</span>
+          <span class="font24">{{data['patient_first_name']}}.</span>
         </span>
       </div>
       <div class="right">
@@ -28,7 +28,7 @@
     </div>
 
     <div class="spacer" style="height: 27px;"></div>
-    <p class="center"> Enter (patient_first_name)'s date of birth to confirm and meet our privacy policy.</p>
+    <p class="center"> Enter {{data['patient_first_name']}}'s date of birth to confirm and meet our privacy policy.</p>
 
     <div>
     	<label class="item item-input" for="birthday">DOB:</label>

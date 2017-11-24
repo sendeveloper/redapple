@@ -25,10 +25,6 @@ export class Rest {
   }
   public getApiURL() {
     return restApis[this.deviceNumber];
-    // if (this.deviceNumber)
-    //   return this.proxyApi;
-    // else
-    //   return this.directApi;
   }
   public getInteractiveData(parent, transitionPage) {
     var url = this.getApiURL() + "flag=check_active_code&code=" + this.code;
@@ -50,4 +46,13 @@ export class Rest {
       }
   }
 
+  public changeDateFormatUTC(date) {
+    var d = new Date(date);
+    var offset = d.getTimezoneOffset() * 60 * 1000;
+    return d.getTime() - offset;
+  }
+  public changeDateFormat(date) {
+    var d = new Date(date);
+    return d.getTime();
+  }
 }

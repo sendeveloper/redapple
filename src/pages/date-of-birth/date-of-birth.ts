@@ -21,7 +21,6 @@ export class DateOfBirthPage {
         public platform: Platform) {
   	this.menu = menu;
   	this.data = this.navParams.get('data');
-    console.log(this.data);
 
     this.birthday = '';
     this.dlg = {};
@@ -53,7 +52,10 @@ export class DateOfBirthPage {
     this.dlg['show'] = b;
   }
   getList() {
-    if (this.birthday != this.data['date_of_birth'])
+    var birth1, birth2;
+    birth1 = this.rest.changeDateFormat(this.birthday);
+    birth2 = this.rest.changeDateFormatUTC(this.data['date_of_birth']);
+    if (birth1 != birth2)
       this.toggleDlg(1);
     else{
       this.navCtrl.push(PrescriptionListPage);

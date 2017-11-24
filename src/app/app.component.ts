@@ -33,13 +33,10 @@ export class MyApp {
     ];
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public rest: Rest) {
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
 
       if (platform.is('mobileweb')) {
-          // console.log("running on a web device");
           this.rest.setDeviceNumber(1);
       }
       else
@@ -50,7 +47,6 @@ export class MyApp {
   }
   openPage(page: PageInterface) {
     this.nav.setRoot(page.component).catch(() => {
-        // console.log("Didn't set nav root");
     });
   }
 }
