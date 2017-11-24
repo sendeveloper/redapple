@@ -39,4 +39,12 @@
 	      for new Rx review code."</li>
 	  </ul>
 	</div>
+	<div class="ui-popup-screen in" *ngIf="dlg.show!=0" (click)="toggleDlg(false)"></div>
+	<div class="ui-popup-container pop in" *ngIf="dlg.show!=0" [ngStyle]="{'max-width': dlg.maxWidth+'px','top': dlg.top+'px', 'left': dlg.left+'px', 'width': dlg.width+'px'}">
+	    <div data-role="popup" class="ui-body-inherit">
+        <div style="max-height: 500px; overflow-y: scroll;">
+        	<p>Code not found. Please check code or contact the pharmacy for new Rx review code.</p>
+        </div>
+	    </div>
+	</div>
 </ion-content>
