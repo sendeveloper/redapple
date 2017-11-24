@@ -1,6 +1,12 @@
 {
   "name": "ionic3-angular4",
   "app_id": "",
+  "proxies": [
+    {
+      "path": "/admin",
+      "proxyUrl": "https://redapplepharmacy.com/admin"
+    }
+  ],
   "integrations": {
     "cordova": {}
   },

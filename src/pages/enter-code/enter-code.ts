@@ -59,7 +59,14 @@ export class EnterCodePage {
   goContinue() {
     if (this.scode == "")
       this.toggleDlg(1);
-    else
-  	 this.navCtrl.push(DateOfBirthPage, {'code': this.scode});
+    else{
+      this.rest.setCode(this.scode);
+      this.rest.getInteractiveData(this.navCtrl, DateOfBirthPage);
+      // this.rest.getCountries()
+      //  .subscribe(
+      //    countries => this.countries = countries,
+      //    error =>  this.errorMessage = <any>error);
+      // this.navCtrl.push(DateOfBirthPage, {'code': this.scode});
+    }
   }
 }

@@ -4,41 +4,45 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the Rest provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class Rest {
-
-  private apiUrl = 'https://restcountries.eu/rest/v2/all';
-
+  private deviceNumber: 0;
+  private directApi: "https://redapplepharmacy.com/admin/server/api_interface.php";
+  private proxyApi: "admin/server/api_interface.php";
+  private code: '';
+  private ndc: '';
   constructor(public http: Http) {}
-
-  getCountries(): Observable<string[]> {
-    return this.http.get(this.apiUrl)
-                    .map(this.extractData)
-                    .catch(this.handleError);
+  public setCode(c) {this.code = c;}
+  public getCode() { return this.code;}
+  public setNdc(n) {this.ndc = n;}
+  public getNdc() {return this.ndc;}
+  public setDeviceNumber(device) {
+      this.deviceNumber = device;
   }
-
-  private extractData(res: Response) {
-    let body = res.json();
-    return body || { };
+  public getApiURL() {
+    if (this.deviceNumber)
+      return this.proxyApi;
+    else
+      return this.directApi;
   }
+  public getInteractiveData(navCtrl, transitionPage) {
+    var url = this.getApiURL() + "flag=check_active_code&code=" + this.code;
+    console.log(url);
+    this.http.get(url).map(response => response.json()).subscribe(data => {
+        setTimeout(() => {
+          console.log(data);
+          if (data.status_code == 200)
+          {
 
-  private handleError (error: Response | any) {
-    let errMsg: string;
-    if (error instanceof Response) {
-      const body = error.json() || '';
-      const err = body.error || JSON.stringify(body);
-      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-    } else {
-      errMsg = error.message ? error.message : error.toString();
-    }
-    console.error(errMsg);
-    return Observable.throw(errMsg);
+          }
+          else
+          {
+          }
+        });
+      }),
+      err => {
+        
+      }
   }
 
 }

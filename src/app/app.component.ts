@@ -9,6 +9,8 @@ import { PrivacyPolicyPage } from '../pages/privacy-policy/privacy-policy';
 import { FeedbackPage } from '../pages/feedback/feedback';
 import { AboutPage } from '../pages/about/about';
 
+import { Rest } from '../providers/rest';
+
 export interface PageInterface {
     title: string;
     description: string;
@@ -29,12 +31,21 @@ export class MyApp {
         { title: 'Feedback', description: 'Feed back', component: FeedbackPage, icon: 'star' },
         { title: 'About', description: 'About page', component: AboutPage, icon: 'information-circle' }
     ];
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public rest: Rest) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+
+      if (platform.is('mobileweb')) {
+          // console.log("running on a web device");
+          this.rest.setDeviceNumber(1);
+      }
+      else
+      {
+          this.rest.setDeviceNumber(0);
+      }
     });
   }
   openPage(page: PageInterface) {
