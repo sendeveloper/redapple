@@ -11,23 +11,38 @@ import { PrescriptionReviewPage } from '../prescription-review/prescription-revi
   templateUrl: 'prescription-list.html',
 })
 export class PrescriptionListPage {
-	scode: string;
-	birthday: string;
+	data: any;
+  data_count: number;
+  first_name: string;
+  custom_class: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   			public menu: MenuController, public rest: Rest) {
   	this.menu = menu;
-  	this.scode = this.navParams.get('code');
-  	this.birthday = this.navParams.get('birthday');
+  	this.data = null;
+    this.custom_class = {};
+    this.custom_class['Ready'] = 'green-text';
+    this.custom_class['In Progress'] = 'blue-text';
+    this.custom_class['On Order'] = 'orange-text';
+    this.custom_class['Yes'] = 'green-text';
+    this.custom_class['No'] = 'blue-text';
+
+    this.data_count = 0;
+    this.first_name = rest.getFirstName();
+    rest.getDrugProperty(this);
   }
 
   ionViewDidLoad() {
     
   }
-  
+  setData(d) {
+    this.data = d;
+    this.data_count = this.data.length;
+  }
   showMenu() {
     this.menu.open();
   }
-  goReview() {
+  goReview(generic_review) {
+    console.log(generic_review);
     this.navCtrl.push(PrescriptionReviewPage, {});
   }
 }

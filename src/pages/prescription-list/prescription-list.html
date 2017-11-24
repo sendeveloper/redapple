@@ -10,71 +10,45 @@
 </ion-header>
 
 <ion-content padding>
-	<div class="spacer" style="height: 27px;"></div>
-    <div class="maxwidth450">
-      <div class="maxwidth300">
-        <div class="ovalBorderRightGrey">
-          <span class="font24 blue-text">Great.</span>
-          <br>
-          <span>Prescriptions being filled for (patient-first-name) are listed below.</span>
-
-        </div>
-        <div class="right">
-          <img src="assets/imgs/pharm-amanda-grey.svg" alt="Pharmacist Amanda" width="80">
-        </div>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
+	<div class="spacer" style="height: 27px;"> 
+  </div>
+  <div class="maxwidth450">
+    <div class="maxwidth300" *ngIf="data!=null">
+      <div class="ovalBorderRightGrey">
+        <span class="font24 blue-text">Great.</span>
+        <br>
+        <span>Prescriptions being filled for {{first_name}} are listed below.</span>
       </div>
-
-      <div class="spacer" style="height: 25px;"></div>
-      <p class="center">Please review and contact the Pharmacy with any questions.</p>
+      <div class="right">
+        <img src="assets/imgs/pharm-amanda-grey.svg" alt="Pharmacist Amanda" width="80">
+      </div>
       <p>&nbsp;</p>
       <p>&nbsp;</p>
-      <h4 class="center">2 Rx found:(output # in db)</h4>
+      <p>&nbsp;</p>
+    </div>
+    <div class="spacer" style="height: 25px;"></div>
+    <p class="center">Please review and contact the Pharmacy with any questions.</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <h4 class="center">{{data_count}} Rx found:(output # in db)</h4>
+    <ng-container *ngFor="let each of data;let i=index">
       <div class="list card padded">
-        <p class="center">Rx #1</p>
+        <p class="center">Rx #{{i+1}}</p>
         <hr class="hrblue">
         <h4>Generic Name:</h4>
-        <p>Generic name here</p>
+        <p>{{each['generic_name']}}</p>
         <h4>Brand Name:</h4>
-        <p>Brand name here</p>
+        <p>{{each['brand_name']}}</p>
         <h4>Status: </h4>
         <p>
-          <span class="green-text font24">Ready</span>
-          <span class="blue-text font24">In Progress</span>
-          <span class="orange-text font24">On Order</span>
+          <span class="{{custom_class[each.prescription_ready]}} font24">{{each.prescription_ready}}</span>
+          
         </p>
         <div class="spacer" style="height: 25px;"></div>
         <p class="center">
-          <a (click)="goReview()" class="button button-calm" style="width: 200px;">Learn More</a>
+          <a (click)="goReview(each['generic_name'])" class="button button-calm" style="width: 200px;">Learn More</a>
         </p>
       </div>
-
-      <div class="list card padded">
-        <p class="center">Rx #2</p>
-        <hr class="hrblue">
-        <h4>Generic Name:</h4>
-        <p>Generic name here</p>
-        <h4>Brand Name:</h4>
-        <p>Brand name here</p>
-        <h4>Status: </h4>
-        <p>
-          <span class="green-text font24">Ready</span>
-          <span class="blue-text font24">In Progress</span>
-          <span class="orange-text font24">On Order</span>
-        </p>
-        <div class="spacer" style="height: 25px;"></div>
-        <div class="center">
-          <a (click)="goReview()" class="button button-calm center" style="width: 200px;">Learn More</a>
-        </div>
-      </div>
-    </div>
-    <h3>Dev:</h3>
-    <ul>
-      <li>1. Display patient_first_name, generic_name, brand_name, status (from patient_interactivity_code table). Tell user how many prescriptions found in database.</li>
-      <li>2. Repeat prescription list if there are more matches in the database.</li>
-      <li>3. User taps on learn more, SELECT all from patient_drug_information table where generic_name = patient_drug_information.generic_name. Information will be displayed in the prescription review page.</li>
-      <li>Ability to refresh status field every 2 minutes. Show alert if prescription is ready:"Rx ready for pickup"</li>
-    </ul>
+    </ng-container>
+  </div> 
 </ion-content>

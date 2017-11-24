@@ -58,6 +58,7 @@ export class DateOfBirthPage {
     if (birth1 != birth2)
       this.toggleDlg(1);
     else{
+      this.rest.setFirstName(this.data['patient_first_name']);
       this.navCtrl.push(PrescriptionListPage);
     }
   }

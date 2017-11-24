@@ -31,13 +31,6 @@
 		    <a (click)="goContinue()" class="button button-assertive button-outline">Continue</a>
 		  </div>
 		</div>
-	  <div class="spacer" style="height: 50px;"></div>
-	  <h3>Developer:</h3>
-	  <ul>
-	    <li>1. User will input code sent to user's cell-phone</li>
-	    <li>2. On tapping continue, select all from patient-interactivity-code table (rap_pharmacy db) where interactive_code = user input. If code matches user input continue, else show message: "Code not found. Please check code or contact the pharmacy
-	      for new Rx review code."</li>
-	  </ul>
 	</div>
 	<div class="ui-popup-screen in" *ngIf="dlg.show!=0" (click)="toggleDlg(0)"></div>
 	<div class="ui-popup-container pop in" *ngIf="dlg.show!=0" [ngStyle]="{'max-width': dlg.maxWidth+'px','top': dlg.top+'px', 'left': dlg.left+'px', 'width': dlg.width+'px'}">

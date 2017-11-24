@@ -14,12 +14,15 @@ export class Rest {
   private deviceNumber: 0;
   private code: '';
   private ndc: '';
+  private first_name: '';
   constructor(public http: Http) {}
 
   public setCode(c) {this.code = c;}
   public getCode() { return this.code;}
   public setNdc(n) {this.ndc = n;}
   public getNdc() {return this.ndc;}
+  public setFirstName(n) {this.first_name = n;}
+  public getFirstName() {return this.first_name;}
   public setDeviceNumber(device) {
       this.deviceNumber = device;
   }
@@ -45,7 +48,24 @@ export class Rest {
         parent.toggleDlg(1);
       }
   }
-
+  public getDrugProperty(parent) {
+    var url = this.getApiURL() + "flag=get_drug_property&ndc=" + this.getNdc();
+    this.http.get(url).map(response => response.json()).subscribe(result => {
+        setTimeout(() => {
+          if (result.status_code == 200 && result.count>0)
+          {
+            parent.setData(result.data);
+          }
+          else
+          {
+            parent.toggleDlg(1);
+          }
+        });
+      }),
+      err => {
+        parent.toggleDlg(1);
+      }
+  }
   public changeDateFormatUTC(date) {
     var d = new Date(date);
     var offset = d.getTimezoneOffset() * 60 * 1000;
