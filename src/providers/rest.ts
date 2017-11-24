@@ -66,6 +66,24 @@ export class Rest {
         parent.toggleDlg(1);
       }
   }
+  public getDrugInformation(parent) {
+    var url = this.getApiURL() + "flag=drug_information&ndc=" + this.getNdc();
+    this.http.get(url).map(response => response.json()).subscribe(result => {
+        setTimeout(() => {
+          if (result.status_code == 200 && result.count>0)
+          {
+            parent.setData(result.data);
+          }
+          else
+          {
+            parent.toggleDlg(1);
+          }
+        });
+      }),
+      err => {
+        parent.toggleDlg(1);
+      }
+  }
   public changeDateFormatUTC(date) {
     var d = new Date(date);
     var offset = d.getTimezoneOffset() * 60 * 1000;

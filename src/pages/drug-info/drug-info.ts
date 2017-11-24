@@ -14,19 +14,24 @@ import { Rest } from '../../providers/rest';
 export class DrugInfoPage {
   ind: number;
   info: any;
+  data: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   			public menu: MenuController, public rest: Rest,
         public http: Http, private sanitizer: DomSanitizer) {
   	this.menu = menu;
+    this.data = null;
+    rest.getDrugInformation(this);
   }
   
   ionViewDidLoad() {
-    // this.ind = this.navParams.get('index');
-    this.ind = 0;
+    this.ind = this.navParams.get('index');
     this.getJsonData();  
   }
   showMenu() {
     this.menu.open();
+  }
+  setData(d){
+    this.data = d;
   }
   getJsonData() {
     this.info = null

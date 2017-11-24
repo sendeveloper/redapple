@@ -5,31 +5,31 @@
     "content": "",
     "data": [
       {
-        "title": "Generic Name",  "field": "generic"
+        "title": "Generic Name",  "field": "generic_name"
       },
       {
-        "title": "Brand Name",  "field": "generic"
+        "title": "Brand Name",  "field": "brand_name"
       },
       {
-        "title": "Drug Class",  "field": "generic"
+        "title": "Drug Class",  "field": "drug_class"
       },
       {
-        "title": "This is used for",  "field": "generic"
+        "title": "This is used for",  "field": "used_for"
       },
       {
-        "title": "Drug dosage",  "field": "generic"
+        "title": "Drug dosage",  "field": "drug_dosage"
       },
       {
-        "title": "How to take",  "field": "generic"
+        "title": "How to take",  "field": "how_to_take"
       },
       {
-        "title": "Missed Dose",  "field": "generic"
+        "title": "Missed Dose",  "field": "missed_dose"
       },
       {
-        "title": "Over dose",  "field": "generic"
+        "title": "Over dose",  "field": "overdose"
       },
       {
-        "title": "Pharmacist take",  "field": "take"
+        "title": "Pharmacist take",  "field": "pharmacists_take"
       }
     ]
   },
