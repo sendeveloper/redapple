@@ -25,6 +25,7 @@ export class EnterCodePage {
         public platform: Platform) {
     this.menu = menu;
 
+    this.dlg = {};
     this.dlg['show'] = 0;
     this.dlg['maxWidth'] = 600;
     this.dlg['left'] = 0;
