@@ -45,15 +45,11 @@ export class EnterCodePage {
     if (b != 0)
     {
       var scrollPos = this.content.getContentDimensions().scrollTop;
-      if (b == 1)
-        this.dlg['height'] = 400;
-      else
-        this.dlg['height'] = 100;
       this.dlg['width'] = this.platform.width() * 0.9;
       if (this.dlg['width'] > this.dlg['maxWidth'])
         this.dlg['width'] = this.dlg['maxWidth'];
       this.dlg['left'] = (this.platform.width() - this.dlg['width']) / 2;
-      this.dlg['top'] = (this.platform.height() - this.dlg['height']) / 2 + scrollPos;
+      this.dlg['top'] = (this.platform.height() - this.dlg['height']) / 2 + scrollPos - 30;
     }
     this.dlg['show'] = b;
   }
