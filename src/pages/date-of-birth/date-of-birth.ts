@@ -23,6 +23,10 @@ export class DateOfBirthPage {
   	this.data = this.navParams.get('data');
     console.log(this.data);
 
+  }
+
+  ionViewDidLoad() {
+  	this.birthday = '';
     this.dlg = {};
     this.dlg['show'] = 0;
     this.dlg['maxWidth'] = 600;
@@ -30,11 +34,6 @@ export class DateOfBirthPage {
     this.dlg['top'] = 0;
     this.dlg['width'] = 200;
     this.dlg['height'] = 100;
-  }
-
-  ionViewDidLoad() {
-  	this.birthday = '';
-    // console.log('ionViewDidLoad DateOfBirthPage');
   }
   showMenu() {
     this.menu.open();
@@ -52,7 +51,11 @@ export class DateOfBirthPage {
     }
     this.dlg['show'] = b;
   }
-  getList() { 	
-  	this.navCtrl.push(PrescriptionListPage, {'code': this.scode, 'birthday': this.birthday});
+  getList() {
+    if (this.birthday != this.data['date_of_birth'])
+      this.toggleDlg(1);
+    else{
+      this.navCtrl.push(PrescriptionListPage);
+    }
   }
 }

@@ -24,6 +24,10 @@ export class EnterCodePage {
         public platform: Platform) {
     this.menu = menu;
 
+  }
+
+  ionViewDidLoad() {
+    this.scode = '';
     this.dlg = {};
     this.dlg['show'] = 0;
     this.dlg['maxWidth'] = 600;
@@ -31,10 +35,6 @@ export class EnterCodePage {
     this.dlg['top'] = 0;
     this.dlg['width'] = 200;
     this.dlg['height'] = 100;
-  }
-
-  ionViewDidLoad() {
-    this.scode = '';
   }
   showMenu() {
     this.menu.open();
