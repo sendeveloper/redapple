@@ -58,12 +58,10 @@ export class Rest {
           }
           else
           {
-            parent.toggleDlg(1);
           }
         });
       }),
       err => {
-        parent.toggleDlg(1);
       }
   }
   public getDrugInformation(parent) {
@@ -72,16 +70,15 @@ export class Rest {
         setTimeout(() => {
           if (result.status_code == 200 && result.count>0)
           {
-            parent.setData(result.data);
+            parent.setData(result.data[0]);
           }
           else
           {
-            parent.toggleDlg(1);
           }
         });
       }),
       err => {
-        parent.toggleDlg(1);
+        
       }
   }
   public changeDateFormatUTC(date) {

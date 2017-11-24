@@ -32,6 +32,7 @@ export class DrugInfoPage {
   }
   setData(d){
     this.data = d;
+    console.log(this.data);
   }
   getJsonData() {
     this.info = null
