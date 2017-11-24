@@ -53,9 +53,9 @@ export class EnterCodePage {
       if (this.dlg['width'] > this.dlg['maxWidth'])
         this.dlg['width'] = this.dlg['maxWidth'];
       this.dlg['left'] = (this.platform.width() - this.dlg['width']) / 2;
-      this.dlg['top'] = (this.platform.height() - this.dlg['height']) / 2 + scrollPos - 60;
+      this.dlg['top'] = (this.platform.height() - this.dlg['height']) / 2 + scrollPos;
     }
-    this.dlg['show'] = 1;
+    this.dlg['show'] = b;
   }
   goCancel() {
   	this.navCtrl.push(HomePage);
