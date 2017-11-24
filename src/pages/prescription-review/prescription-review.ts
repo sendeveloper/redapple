@@ -40,7 +40,8 @@ export class PrescriptionReviewPage {
     else
     {
       if (i>2) i = i-2;
-      this.navCtrl.push(DrugInfoPage, {"index": i});
+      this.navCtrl.push(DrugInfoPage);
+      // this.navCtrl.push(DrugInfoPage, {"index": i});
     }
   }
   getJsonData() {

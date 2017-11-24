@@ -21,7 +21,8 @@ export class DrugInfoPage {
   }
   
   ionViewDidLoad() {
-    this.ind = this.navParams.get('index');
+    // this.ind = this.navParams.get('index');
+    this.ind = 0;
     this.getJsonData();  
   }
   showMenu() {
