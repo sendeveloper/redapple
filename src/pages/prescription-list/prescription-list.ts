@@ -23,8 +23,8 @@ export class PrescriptionListPage {
     this.custom_class['Ready'] = 'green-text';
     this.custom_class['In Progress'] = 'blue-text';
     this.custom_class['On Order'] = 'orange-text';
-    this.custom_class['Yes'] = 'green-text';
-    this.custom_class['No'] = 'blue-text';
+    this.custom_class['YES'] = 'green-text';
+    this.custom_class['NO'] = 'blue-text';
 
     this.data_count = 0;
     this.first_name = rest.getFirstName();
@@ -41,8 +41,7 @@ export class PrescriptionListPage {
   showMenu() {
     this.menu.open();
   }
-  goReview(generic_review) {
-    console.log(generic_review);
-    this.navCtrl.push(PrescriptionReviewPage, {});
+  goReview(generic_name) {
+    this.navCtrl.push(PrescriptionReviewPage, {'generic_name': generic_name});
   }
 }

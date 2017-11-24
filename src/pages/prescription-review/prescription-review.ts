@@ -18,10 +18,12 @@ import { DrugResourcePage } from '../drug-resource/drug-resource';
 })
 export class PrescriptionReviewPage {
   info: any;
+  generic_name: string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   				public menu: MenuController, public rest: Rest,
           public http: Http, private sanitizer: DomSanitizer) {
   	this.menu = menu;
+    this.generic_name = this.navParams.get('generic_name');
   }
 
   ionViewDidLoad() {

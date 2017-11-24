@@ -10,7 +10,7 @@
 </ion-header>
 <ion-content padding>
 	<div class="spacer" style="height: 40px;"></div>
-  <h4 id="prescriptionReview-heading">Review (generic name)</h4>
+  <h4 id="prescriptionReview-heading">Review {{generic_name}}</h4>
   <div class="spacer" style="height: 25px;"></div>
   <ion-list id="prescriptionReview-list1" class="manual-list-fullwidth maxwidth600">
     <ion-item *ngFor="let each of info;let i=index" (click)="drugClick(i)" class="item-thumbnail-left item item-block item-ios {{each.class}}">
