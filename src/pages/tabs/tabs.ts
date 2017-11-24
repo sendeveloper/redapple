@@ -6,11 +6,11 @@ import { IonicPage } from 'ionic-angular';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-
-  tab1Root: string = 'ChatPharmacistPage';
-  tab2Root: string = 'PrescriptionListPage';
-  tab3Root: string = 'PrescriptionReviewPage';
-  tab4Root: string = 'ContactUsPage';
+  tab1Root: string = 'HomePage';
+  tab2Root: string = 'ChatPharmacistPage';
+  tab3Root: string = 'PrescriptionListPage';
+  tab4Root: string = 'PrescriptionReviewPage';
+  tab5Root: string = 'ContactUsPage';
   constructor() {
 
   }

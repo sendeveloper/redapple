@@ -23,7 +23,7 @@ export interface PageInterface {
 })
 export class MyApp {
   @ViewChild(Nav) nav:Nav;
-  rootPage:any = 'TabsPage';
+  rootPage:any = 'HomePage';
   appPages: PageInterface[] = [
         { title: 'Home', description: 'Home', component: HomePage, icon: 'home' },
         { title: 'Terms', description: 'Terms of Use', component: TermsOfUsePage, icon: 'md-contract' },

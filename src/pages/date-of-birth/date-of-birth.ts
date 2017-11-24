@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, MenuController, Content, Platform } from 'ionic-angular';
 
 import { Rest } from '../../providers/rest';
 
@@ -11,21 +11,46 @@ import { PrescriptionListPage } from '../prescription-list/prescription-list';
   templateUrl: 'date-of-birth.html',
 })
 export class DateOfBirthPage {
-	scode: string;
-	birthday: string;
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-  			public menu: MenuController, public rest: Rest) {
+  @ViewChild(Content) content: Content;
+	data: any;
+  birthday: string;
+  dlg: any;
+  constructor(public navCtrl: NavController, 
+        public navParams: NavParams, 
+        public menu: MenuController, public rest: Rest,
+        public platform: Platform) {
   	this.menu = menu;
-  	this.scode = this.navParams.get('code');
+  	this.data = this.navParams.get('data');
+    console.log(this.data);
+
+    this.dlg = {};
+    this.dlg['show'] = 0;
+    this.dlg['maxWidth'] = 600;
+    this.dlg['left'] = 0;
+    this.dlg['top'] = 0;
+    this.dlg['width'] = 200;
+    this.dlg['height'] = 100;
   }
 
   ionViewDidLoad() {
   	this.birthday = '';
     // console.log('ionViewDidLoad DateOfBirthPage');
   }
-
   showMenu() {
     this.menu.open();
+  }
+  toggleDlg(b: number)
+  {
+    if (b != 0)
+    {
+      var scrollPos = this.content.getContentDimensions().scrollTop;
+      this.dlg['width'] = this.platform.width() * 0.9;
+      if (this.dlg['width'] > this.dlg['maxWidth'])
+        this.dlg['width'] = this.dlg['maxWidth'];
+      this.dlg['left'] = (this.platform.width() - this.dlg['width']) / 2;
+      this.dlg['top'] = (this.platform.height() - this.dlg['height']) / 2 + scrollPos - 30;
+    }
+    this.dlg['show'] = b;
   }
   getList() { 	
   	this.navCtrl.push(PrescriptionListPage, {'code': this.scode, 'birthday': this.birthday});

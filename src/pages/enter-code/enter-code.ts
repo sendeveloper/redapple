@@ -20,7 +20,6 @@ export class EnterCodePage {
   dlg: any;
   constructor(public navCtrl: NavController, 
         public navParams: NavParams, 
-        public http: Http, private sanitizer: DomSanitizer,
         public menu: MenuController, public rest: Rest,
         public platform: Platform) {
     this.menu = menu;
@@ -61,12 +60,7 @@ export class EnterCodePage {
       this.toggleDlg(1);
     else{
       this.rest.setCode(this.scode);
-      this.rest.getInteractiveData(this.navCtrl, DateOfBirthPage);
-      // this.rest.getCountries()
-      //  .subscribe(
-      //    countries => this.countries = countries,
-      //    error =>  this.errorMessage = <any>error);
-      // this.navCtrl.push(DateOfBirthPage, {'code': this.scode});
+      this.rest.getInteractiveData(this, DateOfBirthPage);
     }
   }
 }
