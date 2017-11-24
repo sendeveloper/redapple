@@ -24,9 +24,6 @@ export class EnterCodePage {
         public platform: Platform) {
     this.menu = menu;
 
-  }
-
-  ionViewDidLoad() {
     this.scode = '';
     this.dlg = {};
     this.dlg['show'] = 0;
@@ -35,6 +32,10 @@ export class EnterCodePage {
     this.dlg['top'] = 0;
     this.dlg['width'] = 200;
     this.dlg['height'] = 100;
+  }
+
+  ionViewDidLoad() {
+    
   }
   showMenu() {
     this.menu.open();

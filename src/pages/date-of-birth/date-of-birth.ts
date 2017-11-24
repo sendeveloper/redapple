@@ -23,10 +23,7 @@ export class DateOfBirthPage {
   	this.data = this.navParams.get('data');
     console.log(this.data);
 
-  }
-
-  ionViewDidLoad() {
-  	this.birthday = '';
+    this.birthday = '';
     this.dlg = {};
     this.dlg['show'] = 0;
     this.dlg['maxWidth'] = 600;
@@ -34,6 +31,10 @@ export class DateOfBirthPage {
     this.dlg['top'] = 0;
     this.dlg['width'] = 200;
     this.dlg['height'] = 100;
+  }
+
+  ionViewDidLoad() {
+  	
   }
   showMenu() {
     this.menu.open();
