@@ -1,0 +1,38 @@
+[
+	{
+		"class": "assertive",
+		"src": "assets/imgs/drug_info_thumb.png",
+		"title": "Drug Information",
+		"desc": "Uses, how to take, dose"
+	},
+	{
+		"class": "calm",
+		"src": "assets/imgs/drug_image_thumb.png",
+		"title": "Drug Images",
+		"desc": "How the medicine looks like"
+	},
+	{
+		"class": "royal",
+		"src": "assets/imgs/drug-side-effects-thumb.png",
+		"title": "Side Effects",
+		"desc": "Possible side effects"
+	},
+	{
+		"class": "energized",
+		"src": "assets/imgs/drug-interaction-thumb.png",
+		"title": "Drug Interactions",
+		"desc": "Possible drug interactions"
+	},
+	{
+		"class": "positive",
+		"src": "assets/imgs/drug_what_if_thumb.png",
+		"title": "What If?",
+		"desc": "You are pregnant, breastfeeding, diabetic ..."
+	},
+	{
+		"class": "balanced",
+		"src": "assets/imgs/drug_resources_thumb.png",
+		"title": "Resources",
+		"desc": "More useful information"
+	}
+]

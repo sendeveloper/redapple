@@ -13,18 +13,26 @@
   <h4 id="prescriptionReview-heading">Review (generic name)</h4>
   <div class="spacer" style="width: 300px;"></div>
   <ion-list id="prescriptionReview-list1" class="manual-list-fullwidth maxwidth600">
-    <ion-item class="item-thumbnail-left assertive" (click)="drugInfo(0)">
+    <ion-item *ngFor="let each of info;let i=index" (click)="drugClick(i)" class="item-thumbnail-left {{each.class}}">
+      <img src="{{each.src}}" />
+      <h2>
+        {{each.title}}
+        <p>{{each.desc}}</p>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </h2> 
+    </ion-item>
+    <!-- <ion-item class="item-thumbnail-left assertive" (click)="drugInfo(0)">
       <img src="assets/imgs/drug_info_thumb.png">
       <h2>
       	Drug Information
-        <p style="white-space:normal;">Uses, how to take, dose</p>
+        <p>Uses, how to take, dose</p>
         <ion-icon name="arrow-forward"></ion-icon>
       </h2>
     </ion-item>
     <ion-item class="item-thumbnail-left calm" (click)="drugImage()">
       <img src="assets/imgs/drug_image_thumb.png">
       <h2>Drug Images
-        <p style="white-space:normal;">How the medicine looks like</p>
+        <p>How the medicine looks like</p>
         <ion-icon name="arrow-forward"></ion-icon>
       </h2>
     </ion-item>
@@ -38,14 +46,14 @@
     <ion-item class="item-thumbnail-left energized" (click)="drugInfo(1)">
       <img src="assets/imgs/drug-interaction-thumb.png">
       <h2>Drug Interactions
-        <p style="white-space:normal;">Possible drug interactions</p>
+        <p>Possible drug interactions</p>
         <ion-icon name="arrow-forward"></ion-icon>
       </h2>
     </ion-item>
     <ion-item class="item-thumbnail-left positive" (click)="drugInfo(2)">
       <img src="assets/imgs/drug_what_if_thumb.png">
       <h2>What If?
-        <p style="white-space:normal;">You are pregnant, breastfeeding, diabetic ...</p>
+        <p>You are pregnant, breastfeeding, diabetic ...</p>
         <ion-icon name="arrow-forward"></ion-icon>
       </h2>
     </ion-item>
@@ -55,7 +63,7 @@
         <p>More useful information</p>
         <ion-icon name="arrow-forward"></ion-icon>
       </h2>
-    </ion-item>
+    </ion-item> -->
   </ion-list>
   <div class="spacer" style="height: 100px;"></div>
 </ion-content>

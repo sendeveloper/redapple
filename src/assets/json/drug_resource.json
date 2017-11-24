@@ -1,0 +1,22 @@
+[
+	{
+		"src": "assets/imgs/drug_info_thumb.png",
+		"title": "Chat with pharmacist",
+		"desc": "Questions? Ask the pharmacist."
+	},
+	{
+		"src": "assets/imgs/drug_info_thumb.png",
+		"title": "Test your knowledge",
+		"desc": "How much do you know about this medication?"
+	},
+	{
+		"src": "assets/imgs/drug_info_thumb.png",
+		"title": "Videos",
+		"desc": "Watch videos on how best to use this medicine"
+	},
+	{
+		"src": "assets/imgs/drug_info_thumb.png",
+		"title": "FDA, Medline, Links",
+		"desc": ""
+	}
+]
