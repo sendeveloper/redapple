@@ -87,7 +87,7 @@ export class Rest {
         setTimeout(() => {
           if (result.status_code == 200 && result.count>0)
           {
-            parent.setData(result.data[0]);
+            parent.setData(result.data);
           }
           else
           {
