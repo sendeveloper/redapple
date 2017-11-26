@@ -15,9 +15,6 @@
       <img class="imgs" src="assets/imgs/drug-image-icon.svg" style="width: 30%;">
     </div>
     <div class="spacer" style="height: 12px;"></div>
-    <div class="show-list-numbers-and-dots">
-      <p>Dev: Pull drug image from drug-image-table using ndc matches. Repeat if more than one image.</p>
-    </div>
     <ng-container *ngFor="let each of data;let i=index">
       <div class="list card" id="drugImages-{{i}}">
         <div *ngFor="let each1 of each.images">
@@ -25,7 +22,7 @@
         </div>
         <div class="item item-body">
           <div class="show-description">
-            <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(each.description)">
+            <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(each.drug_image_description)">
             </div>
           </div>
         </div>
