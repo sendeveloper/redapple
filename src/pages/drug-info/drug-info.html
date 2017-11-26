@@ -11,9 +11,6 @@
 <ion-content padding>
   <div *ngIf="info!=null && data!=null">
   	<div class="spacer" style="height: 19px;"></div>
-    <div class="show-list-numbers-and-dots">
-      <p>Dev: Display information from the patient-drug-information table</p>
-    </div>
     <div style="text-align: center;">
       <img src="{{info[ind]['url']}}" class="imgs" style="width: 30%;">
       <h3>{{info[ind]['content']}}</h3>
@@ -21,7 +18,7 @@
     <div class="spacer" style="height: 19px;"></div>
     <ng-container *ngFor="let each of info[ind]['data'];let i=index">
       <h4>{{each.title}}</h4>
-      <div class="show-list-numbers-and-dots" [innerHTML]="sanitizer.bypassSecurityTrustHtml(data[each.field])">
+      <div class="show-list-numbers-and-dots" *ngIf="data[each.field] != undefined" [innerHTML]="sanitizer.bypassSecurityTrustHtml(data[each.field])">
       </div>
     </ng-container>
   </div>

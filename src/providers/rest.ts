@@ -81,6 +81,23 @@ export class Rest {
         
       }
   }
+  public getDrugImage(parent) {
+    var url = this.getApiURL() + "flag=drug_image&ndc=" + this.getNdc();
+    this.http.get(url).map(response => response.json()).subscribe(result => {
+        setTimeout(() => {
+          if (result.status_code == 200 && result.count>0)
+          {
+            parent.setData(result.data[0]);
+          }
+          else
+          {
+          }
+        });
+      }),
+      err => {
+        
+      }
+  }
   public changeDateFormatUTC(date) {
     var d = new Date(date);
     var offset = d.getTimezoneOffset() * 60 * 1000;
