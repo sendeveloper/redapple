@@ -1,8 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController, Content, Platform } from 'ionic-angular';
-import { DomSanitizer } from '@angular/platform-browser';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
 import { LoadingController } from 'ionic-angular';
 
 import { Rest } from '../../providers/rest';
