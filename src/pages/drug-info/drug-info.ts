@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angul
 import { DomSanitizer } from '@angular/platform-browser';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { LoadingController } from 'ionic-angular';
 
 import { Rest } from '../../providers/rest';
 
@@ -17,6 +18,7 @@ export class DrugInfoPage {
   data: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   			public menu: MenuController, public rest: Rest,
+        public loadingCtrl: LoadingController,
         public http: Http, private sanitizer: DomSanitizer) {
   	this.menu = menu;
     this.data = null;

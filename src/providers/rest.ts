@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import { Loading } from 'ionic-angular';
 
 let restApis = [
   'https://redapplepharmacy.com/admin/server/api_interface.php?',
@@ -15,7 +16,10 @@ export class Rest {
   private code: '';
   private ndc: '';
   private first_name: '';
-  constructor(public http: Http) {}
+  private loading: Loading;
+  constructor(public http: Http) {
+    this.loading = null;
+  }
 
   public setCode(c) {this.code = c;}
   public getCode() { return this.code;}
@@ -31,8 +35,11 @@ export class Rest {
   }
   public getInteractiveData(parent, transitionPage) {
     var url = this.getApiURL() + "flag=check_active_code&code=" + this.code;
+    var self = this;
+    this.showLoading(parent);
     this.http.get(url).map(response => response.json()).subscribe(result => {
         setTimeout(() => {
+          self.hideLoading();
           if (result.status_code == 200 && result.count>0)
           {
             this.setNdc(result.data[0]['ndc1']);
@@ -46,12 +53,16 @@ export class Rest {
       }),
       err => {
         parent.toggleDlg(1);
+        self.hideLoading();
       }
   }
   public getDrugProperty(parent) {
     var url = this.getApiURL() + "flag=get_drug_property&ndc=" + this.getNdc();
+    var self = this;
+    this.showLoading(parent);
     this.http.get(url).map(response => response.json()).subscribe(result => {
         setTimeout(() => {
+          self.hideLoading();
           if (result.status_code == 200 && result.count>0)
           {
             parent.setData(result.data);
@@ -62,12 +73,16 @@ export class Rest {
         });
       }),
       err => {
+        self.hideLoading();
       }
   }
   public getDrugInformation(parent) {
     var url = this.getApiURL() + "flag=drug_information&ndc=" + this.getNdc();
+    var self = this;
+    this.showLoading(parent);
     this.http.get(url).map(response => response.json()).subscribe(result => {
         setTimeout(() => {
+          self.hideLoading();
           if (result.status_code == 200 && result.count>0)
           {
             parent.setData(result.data[0]);
@@ -78,13 +93,16 @@ export class Rest {
         });
       }),
       err => {
-        
+        self.hideLoading();
       }
   }
   public getDrugImage(parent) {
     var url = this.getApiURL() + "flag=drug_image&ndc=" + this.getNdc();
+    var self = this;
+    this.showLoading(parent);
     this.http.get(url).map(response => response.json()).subscribe(result => {
         setTimeout(() => {
+          self.hideLoading();
           if (result.status_code == 200 && result.count>0)
           {
             parent.setData(result.data);
@@ -95,13 +113,16 @@ export class Rest {
         });
       }),
       err => {
-        
+        self.hideLoading();
       }
   }
   public getDrugEffect(parent) {
     var url = this.getApiURL() + "flag=drug_information&ndc=" + this.getNdc();
+    var self = this;
+    this.showLoading(parent);
     this.http.get(url).map(response => response.json()).subscribe(result => {
         setTimeout(() => {
+          self.hideLoading();
           if (result.status_code == 200 && result.count>0)
           {
             parent.setData(result.data[0]);
@@ -112,7 +133,7 @@ export class Rest {
         });
       }),
       err => {
-        
+        self.hideLoading();
       }
   }
   public changeDateFormatUTC(date) {
@@ -123,5 +144,14 @@ export class Rest {
   public changeDateFormat(date) {
     var d = new Date(date);
     return d.getTime();
+  }
+  private hideLoading() {
+    this.loading.dismiss().catch(() => {});
+  }
+  private showLoading(parent) {
+    this.loading = parent.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    this.loading.present();
   }
 }

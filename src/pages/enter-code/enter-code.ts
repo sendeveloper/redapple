@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, MenuController, Content, Platform 
 import { DomSanitizer } from '@angular/platform-browser';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { LoadingController } from 'ionic-angular';
 
 import { Rest } from '../../providers/rest';
 
@@ -21,6 +22,7 @@ export class EnterCodePage {
   constructor(public navCtrl: NavController, 
         public navParams: NavParams, 
         public menu: MenuController, public rest: Rest,
+        public loadingCtrl: LoadingController,
         public platform: Platform) {
     this.menu = menu;
 

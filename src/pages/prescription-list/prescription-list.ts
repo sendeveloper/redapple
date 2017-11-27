@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 
 import { Rest } from '../../providers/rest';
 
@@ -16,6 +17,7 @@ export class PrescriptionListPage {
   first_name: string;
   custom_class: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
+        public loadingCtrl: LoadingController,
   			public menu: MenuController, public rest: Rest) {
   	this.menu = menu;
   	this.data = null;
