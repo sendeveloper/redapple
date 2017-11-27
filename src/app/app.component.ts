@@ -6,7 +6,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { TermsOfUsePage } from '../pages/terms-of-use/terms-of-use';
 import { PrivacyPolicyPage } from '../pages/privacy-policy/privacy-policy';
-import { FeedbackPage } from '../pages/feedback/feedback';
 import { AboutPage } from '../pages/about/about';
 
 import { Rest } from '../providers/rest';
