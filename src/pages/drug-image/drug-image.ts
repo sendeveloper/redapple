@@ -28,6 +28,5 @@ export class DrugImagePage {
   }
   setData(d){
     this.data = d;
-    console.log(this.data);
   }
 }

@@ -12,11 +12,13 @@ import { Rest } from '../../providers/rest';
   templateUrl: 'drug-effect.html',
 })
 export class DrugEffectPage {
-
+  data: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  			public menu: MenuController, public rest: Rest,
+        public menu: MenuController, public rest: Rest,
         public http: Http, private sanitizer: DomSanitizer) {
   	this.menu = menu;
+    this.data = null;
+    rest.getDrugEffect(this);
   }
   
   ionViewDidLoad() {
@@ -25,5 +27,17 @@ export class DrugEffectPage {
   showMenu() {
     this.menu.open();
   }
-
+  setData(d){
+    var params = ["side_effects", "precautions", "contraindications"];
+    var titles = ["Side Effects", "Precautions", "Contraindications"];
+    this.data = [];
+    for (var i=0;i<params.length;i++)
+    {
+      var obj = {};
+      obj['title'] = titles[i];
+      obj['field'] = d[ params[i] ];
+      this.data.push(obj);  
+    }
+    console.log(this.data);
+  }
 }

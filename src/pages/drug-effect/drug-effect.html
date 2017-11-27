@@ -9,13 +9,19 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-	<div class="spacer" style="height: 19px;"></div>
-  <div>
-    <img src="assets/imgs/drug-sideeffects-icon.svg" class="imgs" style="width: 30%;">
-  </div>
-  <div class="spacer" style="height: 19px;"></div>
-  <h4>Side Effects:</h4>
-  <div class="show-list-numbers-and-dots">
-    <p>display generic name</p>
+  <div *ngIf="data!=null">
+  	<div class="spacer" style="height: 19px;"></div>
+    <div>
+      <img src="assets/imgs/drug-sideeffects-icon.svg" class="imgs" style="width: 30%;">
+    </div>
+    <div class="spacer" style="height: 19px;"></div>
+    <ion-slides pager>
+      <ion-slide *ngFor="let slide of data">
+        <h4 class="slide-title">
+          {{slide.title}}
+        </h4>
+        <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(slide.field)" class="effect_fields"></div>
+      </ion-slide>
+    </ion-slides>
   </div>
 </ion-content>

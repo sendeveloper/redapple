@@ -8,8 +8,7 @@ import { Rest } from '../../providers/rest';
 
 import { ChatPharmacistPage } from '../chat-pharmacist/chat-pharmacist';
 import { QuizPage } from '../quiz/quiz';
-import { VideosPage } from '../videos/videos';
-import { HealthResourcePage } from '../health-resource/health-resource';
+import { DrugInfoPage } from '../drug-info/drug-info';
 
 @IonicPage()
 @Component({
@@ -19,9 +18,7 @@ import { HealthResourcePage } from '../health-resource/health-resource';
 export class DrugResourcePage {
   pages = {
     0: ChatPharmacistPage,
-    1: QuizPage,
-    2: VideosPage,
-    3: HealthResourcePage
+    1: QuizPage
   };
   info: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -37,7 +34,10 @@ export class DrugResourcePage {
     this.menu.open();
   }
   transit(i: number) {
-  	this.navCtrl.push(this.pages[i]);
+    if (i>1)
+      this.navCtrl.push(DrugInfoPage, {"index": (i+1)});
+    else
+      this.navCtrl.push(this.pages[i]);
   }
   getJsonData() {
     this.info = null

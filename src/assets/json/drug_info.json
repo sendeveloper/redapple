@@ -39,7 +39,7 @@
     "content": "Drug Interactions",
     "data": [
       {
-        "title": "",  "field": "interact"
+        "title": "",  "field": "drug_interactions"
       }
     ]
   },
@@ -49,10 +49,30 @@
     "content": "What if you are:",
     "data": [
       {
-        "title": "Pregnant",  "field": "interact"
+        "title": "Pregnant",  "field": "pregnancy"
       },
       {
-        "title": "Breast Feeding",  "field": "interact"
+        "title": "Breast Feeding",  "field": "breast_feeding"
+      }
+    ]
+  },
+  {
+    "title": "Videos",
+    "url": "",
+    "content": "Videos",
+    "data": [
+      {
+        "title": "",  "field": "drug_video"
+      }
+    ]
+  },
+  {
+    "title": "Health Resources",
+    "url": "",
+    "content": "Healthcare Resources",
+    "data": [
+      {
+        "title": "",  "field": "drug_resources"
       }
     ]
   }
