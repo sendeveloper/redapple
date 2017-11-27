@@ -40,6 +40,5 @@ export class DrugEffectPage {
       obj['field'] = d[ params[i] ];
       this.data.push(obj);  
     }
-    console.log(this.data);
   }
 }
