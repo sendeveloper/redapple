@@ -33,4 +33,7 @@
     <plugin name="cordova-plugin-device" spec="1.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
     <engine name="ios" spec="~4.5.4" />
+    <plugin name="phonegap-plugin-push" spec="^2.0.0">
+        <variable name="SENDER_ID" value="171123" />
+    </plugin>
 </widget>
