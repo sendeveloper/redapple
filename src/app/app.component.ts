@@ -3,8 +3,6 @@ import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-// import { Push, PushToken } from '@ionic/cloud-angular';
-
 import { HomePage } from '../pages/home/home';
 import { TermsOfUsePage } from '../pages/terms-of-use/terms-of-use';
 import { PrivacyPolicyPage } from '../pages/privacy-policy/privacy-policy';
@@ -44,25 +42,8 @@ export class MyApp {
       {
           this.rest.setDeviceNumber(0);
       }
-      // this.registerPush();
     });
   }
-  // registerPush() {
-  //     // Check that we are on a device
-  //   if (this.platform.is('cordova')) {
-  //       // Register push notifications with the push plugin
-  //     this.push.register().then((t: PushToken) => {
-  //       console.log('Generated Token' + JSON.stringify(t));
-  //       // Save the user with Ionic's user auth service
-  //       return this.push.saveToken(t);
-  //     }).then( (t: PushToken) => {
-  //       console.log('Token Saved', t);
-  //       this.listenForPush();
-  //     }).catch( (err) => {
-  //       console.log('Error Saving Token: ' , err);
-  //     });
-  //    }
-  // }
   openPage(page: PageInterface) {
     this.nav.setRoot(page.component).catch(() => {
     });

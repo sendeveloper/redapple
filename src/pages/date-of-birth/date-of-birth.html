@@ -32,7 +32,7 @@
 
     <div>
     	<label class="item item-input" for="birthday">DOB:</label>
-    	<ion-input type="date" id="birthday" placeholder="Date Of Birth" [(ngModel)]="birthday"></ion-input>
+    	<ion-datetime displayFormat="MM/DD/YYYY" id="birthday" placeholder="Date Of Birth" [(ngModel)]="birthday"></ion-datetime>
     </div>
     <a (click)="getList()" class="button button-positive button-block button-clear font24">Here You Go</a>
 
