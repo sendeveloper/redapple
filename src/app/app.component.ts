@@ -15,6 +15,7 @@ export interface PageInterface {
     description: string;
     component: any;
     icon: string;
+    index: number;
 }
 
 @Component({
@@ -24,10 +25,10 @@ export class MyApp {
   @ViewChild(Nav) nav:Nav;
   rootPage:any = 'TabsPage';
   appPages: PageInterface[] = [
-        { title: 'Home', description: 'Home', component: HomePage, icon: 'home' },
-        { title: 'Terms', description: 'Terms of Use', component: TermsOfUsePage, icon: 'md-contract' },
-        { title: 'Policy', description: 'Privacy Policy', component: PrivacyPolicyPage, icon: 'eye-off' },
-        { title: 'About', description: 'About page', component: AboutPage, icon: 'information-circle' }
+        { title: 'Home', description: 'Home', component: HomePage, icon: 'home', index: 0 },
+        { title: 'Terms', description: 'Terms of Use', component: TermsOfUsePage, icon: 'md-contract', index: 1 },
+        { title: 'Policy', description: 'Privacy Policy', component: PrivacyPolicyPage, icon: 'eye-off', index: -1 },
+        { title: 'About', description: 'About page', component: AboutPage, icon: 'information-circle', index: -1 }
     ];
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, 
         public rest: Rest) {
@@ -45,7 +46,19 @@ export class MyApp {
     });
   }
   openPage(page: PageInterface) {
-    this.nav.setRoot(page.component).catch(() => {
-    });
+    let params = {};
+    console.log(page.index);
+    if (page.index) {
+      params = { tabIndex: page.index };
+    }
+    console.log(this.nav.getActiveChildNavs());
+    if (this.nav.getActiveChildNavs().length && page.index != -1) {
+      this.nav.getActiveChildNavs()[0].select(page.index);
+    } else {
+      this.nav.setRoot(page.component, params);
+    }
+
+    // this.nav.setRoot(page.component).catch(() => {
+    // });
   }
 }

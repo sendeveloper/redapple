@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -10,7 +10,9 @@ export class TabsPage {
   tab2Root: string = 'ChatPharmacistPage';
   tab3Root: string = 'PrescriptionListPage';
   tab4Root: string = 'PrescriptionReviewPage';
-  constructor() {
-
+  tabIndex: number;
+  constructor(public navParams: NavParams) {
+  	this.tabIndex = navParams.data.tabIndex || 0;
+  	console.log(this.tabIndex);
   }
 }
