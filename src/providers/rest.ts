@@ -21,7 +21,7 @@ export class Rest {
     this.deviceNumber = 0;
     this.code = '';
     this.ndc = '';
-    this.first_name = 0;
+    this.first_name = '';
   }
   public isShowTab() { return (this.ndc != '' && this.first_name != '') ? true : false}
   public setCode(c) {this.code = c;}

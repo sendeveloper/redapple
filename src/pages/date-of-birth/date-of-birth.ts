@@ -33,7 +33,7 @@ export class DateOfBirthPage {
     this.dlg['height'] = 100;
   }
   ionViewWillEnter() {
-    if (this.rest.isShowTab() == '')
+    if (!this.rest.isShowTab())
       this.tabBarElement.style.display = 'none';
   }
   ionViewWillLeave() {

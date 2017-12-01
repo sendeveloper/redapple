@@ -8,15 +8,12 @@ import { Rest } from '../../providers/rest';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-  tab1Root: string = 'ChatPharmacistPage';
-  tab2Root: string = 'HomePage';
+  tab1Root: string = 'HomePage';
+  tab2Root: string = 'ChatPharmacistPage';
   tab3Root: string = 'PrescriptionListPage';
   tab4Root: string = 'PrescriptionReviewPage';
   tabIndex: number;
   constructor(public navParams: NavParams, public rest: Rest) {
   	this.tabIndex = navParams.data.tabIndex || 0;
-  }
-  isShow() {
-  	return this.rest.getNdc() != '';
   }
 }

@@ -29,7 +29,7 @@ export class PrescriptionReviewPage {
     this.generic_name = this.navParams.get('generic_name');
   }
   ionViewWillEnter() {
-    if (this.rest.isShowTab() == '')
+    if (!this.rest.isShowTab())
       this.tabBarElement.style.display = 'none';
   }
   ionViewWillLeave() {
