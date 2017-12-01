@@ -3,6 +3,7 @@ import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { TabsPage } from '../pages/tabs/tabs';
 import { HomePage } from '../pages/home/home';
 import { TermsOfUsePage } from '../pages/terms-of-use/terms-of-use';
 import { PrivacyPolicyPage } from '../pages/privacy-policy/privacy-policy';
@@ -25,7 +26,7 @@ export class MyApp {
   @ViewChild(Nav) nav:Nav;
   rootPage:any = 'TabsPage';
   appPages: PageInterface[] = [
-        { title: 'Home', description: 'Home', component: HomePage, icon: 'home', index: 0 },
+        { title: 'Home', description: 'Home', component: TabsPage, icon: 'home', index: 0 },
         { title: 'Terms', description: 'Terms of Use', component: TermsOfUsePage, icon: 'md-contract', index: -1 },
         { title: 'Policy', description: 'Privacy Policy', component: PrivacyPolicyPage, icon: 'eye-off', index: -1 },
         { title: 'About', description: 'About page', component: AboutPage, icon: 'information-circle', index: -1 }

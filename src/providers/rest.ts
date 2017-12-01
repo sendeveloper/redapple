@@ -40,24 +40,33 @@ export class Rest {
     var url = this.getApiURL() + "flag=check_active_code&code=" + this.code;
     var self = this;
     this.showLoading(parent);
-    this.http.get(url).map(response => response.json()).subscribe(result => {
+
+    try{
+      this.http.get(url).map(response => response.json()).subscribe(result => {
         setTimeout(() => {
+          // console.log('1');
           self.hideLoading();
           if (result.status_code == 200 && result.count>0)
           {
+            // console.log('2');
             this.setNdc(result.data[0]['ndc1']);
             parent.navCtrl.push(transitionPage, {'data': result.data[0]});
           }
           else
           {
+            // console.log('3');
             parent.toggleDlg(1);
           }
         });
       }),
       err => {
-        parent.toggleDlg(1);
+        // console.log('4');
         self.hideLoading();
+        parent.toggleDlg(1);
       }
+    }catch(e){
+      console.log(e);
+    }
   }
   public getDrugProperty(parent) {
     var url = this.getApiURL() + "flag=get_drug_property&ndc=" + this.getNdc();
