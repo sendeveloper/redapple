@@ -32,7 +32,6 @@ export class EnterCodePage {
     this.dlg['width'] = 200;
     this.dlg['height'] = 100;
   }
-
   ionViewDidLoad() {
     
   }

@@ -10,6 +10,7 @@ import { DrugInfoPage } from '../drug-info/drug-info';
 import { DrugImagePage } from '../drug-image/drug-image';
 import { DrugEffectPage } from '../drug-effect/drug-effect';
 import { DrugResourcePage } from '../drug-resource/drug-resource';
+import { QuizPage } from '../quiz/quiz';
 
 @IonicPage()
 @Component({
@@ -38,6 +39,8 @@ export class PrescriptionReviewPage {
     else if (i == 2)
       this.navCtrl.push(DrugEffectPage);
     else if (i == 5)
+      this.navCtrl.push(QuizPage);
+    else if (i == 6)
       this.navCtrl.push(DrugResourcePage);
     else
     {

@@ -5,7 +5,7 @@
 		"desc": "Questions? Ask the pharmacist."
 	},
 	{
-		"src": "assets/imgs/drug_info_thumb.png",
+		"src": "assets/imgs/drug-quiz.svg",
 		"title": "Test your knowledge",
 		"desc": "How much do you know about this medication?"
 	},

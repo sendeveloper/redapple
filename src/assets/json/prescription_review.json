@@ -30,6 +30,12 @@
 		"desc": "You are pregnant, breastfeeding, diabetic ..."
 	},
 	{
+		"class": "assertive",
+		"src": "assets/imgs/drug-quiz.svg",
+		"title": "Test Your Knowledge",
+		"desc": "HOw much do you know about this medicine?"
+	},
+	{
 		"class": "balanced",
 		"src": "assets/imgs/drug_resources_thumb.png",
 		"title": "Resources",

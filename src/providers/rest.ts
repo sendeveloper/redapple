@@ -18,6 +18,8 @@ export class Rest {
   private loading: Loading;
   constructor(public http: Http) {
     this.loading = null;
+    this.code = '';
+    this.ndc = '';
   }
 
   public setCode(c) {this.code = c;}

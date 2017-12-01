@@ -47,11 +47,11 @@ export class MyApp {
   }
   openPage(page: PageInterface) {
     let params = {};
-    console.log(page.index);
+    // console.log(page.index);
     if (page.index) {
       params = { tabIndex: page.index };
     }
-    console.log(this.nav.getActiveChildNavs());
+    // console.log(this.nav.getActiveChildNavs());
     if (this.nav.getActiveChildNavs().length && page.index != -1) {
       this.nav.getActiveChildNavs()[0].select(page.index);
     } else {

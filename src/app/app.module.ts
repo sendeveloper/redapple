@@ -16,7 +16,8 @@ import { Rest } from '../providers/rest';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp, {
-      preloadModules: true
+      preloadModules: true,
+      backButtonText: ''
     }),
     HttpModule
   ],
