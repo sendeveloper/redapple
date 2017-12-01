@@ -12,11 +12,9 @@ import { EnterCodePage } from '../enter-code/enter-code';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
   constructor(public navCtrl: NavController, public menu: MenuController, public rest: Rest) {
     this.menu = menu;
   }
-
   ionViewDidLoad() {
 
   }

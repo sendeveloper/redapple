@@ -16,13 +16,14 @@ export class EnterCodePage {
   @ViewChild(Content) content: Content;
   scode: string;
   dlg: any;
+  tabBarElement: any;
   constructor(public navCtrl: NavController, 
         public navParams: NavParams, 
         public menu: MenuController, public rest: Rest,
         public loadingCtrl: LoadingController,
         public platform: Platform) {
     this.menu = menu;
-
+    this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
     this.scode = '';
     this.dlg = {};
     this.dlg['show'] = 0;
@@ -31,6 +32,13 @@ export class EnterCodePage {
     this.dlg['top'] = 0;
     this.dlg['width'] = 200;
     this.dlg['height'] = 100;
+  }
+  ionViewWillEnter() {
+    if (this.rest.isShowTab() == '')
+      this.tabBarElement.style.display = 'none';
+  }
+  ionViewWillLeave() {
+    this.tabBarElement.style.display = 'flex';
   }
   ionViewDidLoad() {
     

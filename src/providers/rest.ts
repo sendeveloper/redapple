@@ -11,17 +11,19 @@ let restApis = [
 
 @Injectable()
 export class Rest {
-  private deviceNumber: 0;
-  private code: '';
-  private ndc: '';
-  private first_name: '';
+  private deviceNumber: number;
+  private code: string;
+  private ndc: string;
+  private first_name: string;
   private loading: Loading;
   constructor(public http: Http) {
     this.loading = null;
+    this.deviceNumber = 0;
     this.code = '';
     this.ndc = '';
+    this.first_name = 0;
   }
-
+  public isShowTab() { return (this.ndc != '' && this.first_name != '') ? true : false}
   public setCode(c) {this.code = c;}
   public getCode() { return this.code;}
   public setNdc(n) {this.ndc = n;}

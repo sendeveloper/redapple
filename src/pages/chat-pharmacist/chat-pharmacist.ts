@@ -16,7 +16,7 @@ export class ChatPharmacistPage {
     this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
   }
   ionViewWillEnter() {
-    if (this.rest.getNdc() == '')
+    if (this.rest.isShowTab() == '')
       this.tabBarElement.style.display = 'none';
   }
   ionViewWillLeave() {

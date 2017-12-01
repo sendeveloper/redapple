@@ -16,10 +16,12 @@ export class PrescriptionListPage {
   data_count: number;
   first_name: string;
   custom_class: any;
+  tabBarElement: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
         public loadingCtrl: LoadingController,
   			public menu: MenuController, public rest: Rest) {
   	this.menu = menu;
+    this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
   	this.data = null;
     this.custom_class = {};
     this.custom_class['Ready'] = 'green-text';
@@ -32,7 +34,13 @@ export class PrescriptionListPage {
     this.first_name = rest.getFirstName();
     rest.getDrugProperty(this);
   }
-
+  ionViewWillEnter() {
+    if (this.rest.isShowTab() == '')
+      this.tabBarElement.style.display = 'none';
+  }
+  ionViewWillLeave() {
+    this.tabBarElement.style.display = 'flex';
+  }
   ionViewDidLoad() {
     
   }
