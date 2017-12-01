@@ -8,8 +8,8 @@ import { Rest } from '../../providers/rest';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-  tab1Root: string = 'HomePage';
-  tab2Root: string = 'ChatPharmacistPage';
+  tab1Root: string = 'ChatPharmacistPage';
+  tab2Root: string = 'HomePage';
   tab3Root: string = 'PrescriptionListPage';
   tab4Root: string = 'PrescriptionReviewPage';
   tabIndex: number;

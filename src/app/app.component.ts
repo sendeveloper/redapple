@@ -26,7 +26,7 @@ export class MyApp {
   rootPage:any = 'TabsPage';
   appPages: PageInterface[] = [
         { title: 'Home', description: 'Home', component: HomePage, icon: 'home', index: 0 },
-        { title: 'Terms', description: 'Terms of Use', component: TermsOfUsePage, icon: 'md-contract', index: 1 },
+        { title: 'Terms', description: 'Terms of Use', component: TermsOfUsePage, icon: 'md-contract', index: -1 },
         { title: 'Policy', description: 'Privacy Policy', component: PrivacyPolicyPage, icon: 'eye-off', index: -1 },
         { title: 'About', description: 'About page', component: AboutPage, icon: 'information-circle', index: -1 }
     ];
