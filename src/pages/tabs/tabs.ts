@@ -16,4 +16,7 @@ export class TabsPage {
   constructor(public navParams: NavParams, public rest: Rest) {
   	this.tabIndex = navParams.data.tabIndex || 0;
   }
+  ionViewDidLoad() {
+
+  }
 }
