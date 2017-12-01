@@ -2,7 +2,7 @@
   <ion-navbar class="bar-assertive">
     <ion-title>Side Effects</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (tap)="showMenu()" menuToggle>
+      <button ion-button icon-only (tap)="showMenu()">
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
@@ -17,10 +17,10 @@
     <div class="spacer" style="height: 19px;"></div>
     <ion-slides pager>
       <ion-slide *ngFor="let slide of data">
-        <h4 class="slide-title">
+        <h2 class="slide-title">
           {{slide.title}}
-        </h4>
-        <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(slide.field)" class="effect_fields"></div>
+        </h2>
+        <div [innerHTML]="slide.field" class="effect_fields"></div>
       </ion-slide>
     </ion-slides>
   </div>

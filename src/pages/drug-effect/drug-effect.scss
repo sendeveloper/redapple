@@ -1,10 +1,10 @@
 page-drug-effect {
-	.effect_fields{
+	.slide-zoom { 
+		height: 350px;
+		overflow-y: scroll;
 		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-	    overflow: hidden;
-	    margin: 10px 10px 30px;
-	    border-radius: 2px;
-	    background-color: #fff;
-	    height: 350px;
+		margin: 10px 10px 30px;
+		padding: 10px;
+
 	}
 }
