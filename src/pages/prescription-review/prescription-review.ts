@@ -29,11 +29,11 @@ export class PrescriptionReviewPage {
     this.generic_name = this.navParams.get('generic_name');
   }
   ionViewWillEnter() {
-    if (!this.rest.isShowTab())
-      this.tabBarElement.style.display = 'none';
+    if (this.rest.isShowTab())
+      this.tabBarElement.style.display = 'flex';
   }
   ionViewWillLeave() {
-    this.tabBarElement.style.display = 'flex';
+    
   }
   ionViewDidLoad() {
     this.getJsonData();

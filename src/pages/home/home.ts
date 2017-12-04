@@ -17,20 +17,18 @@ export class HomePage {
     this.menu = menu;
     this.tabBarElement = null;
   }
-  ionViewDidLoad() {
-    if (this.tabIndex == 0)
-    {
-      var self = this;
-      setTimeout(function() {
-        self.tabBarElement = document.querySelector('.tabbar.show-tabbar');
-        if (self.rest.isShowTab() && self.tabBarElement)
+  ionViewWillEnter() {
+    var self = this;
+    setTimeout(function() {
+      self.tabBarElement = document.querySelector('.tabbar.show-tabbar');
+      if (self.tabBarElement)
+      {
+        if (self.rest.isShowTab())
           self.tabBarElement.style.display = 'flex';
-      }, 300);
-    }
+      }
+    }, 400);
   }
   ionViewWillLeave() {
-    if (this.tabBarElement)
-      this.tabBarElement.style.display = 'flex';
   }
   showMenu() {
     this.menu.open();

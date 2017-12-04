@@ -34,11 +34,11 @@ export class EnterCodePage {
     this.dlg['height'] = 100;
   }
   ionViewWillEnter() {
-    if (!this.rest.isShowTab())
-      this.tabBarElement.style.display = 'none';
+    if (this.rest.isShowTab())
+      this.tabBarElement.style.display = 'flex';
   }
   ionViewWillLeave() {
-    this.tabBarElement.style.display = 'flex';
+    
   }
   ionViewDidLoad() {
     
