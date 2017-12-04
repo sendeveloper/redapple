@@ -16,6 +16,7 @@ export class QuizPage {
   count: number;
   answer: string;
   generic_name: string;
+  tabBarElement: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
         public loadingCtrl: LoadingController,
   			public menu: MenuController, public rest: Rest) {
@@ -24,9 +25,13 @@ export class QuizPage {
     this.count = 0;
     this.answer = '';
     this.generic_name = this.navParams.get('generic_name');
+    this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
     rest.getQuizData(this);
   }
-  
+  ionViewWillEnter() {
+    if (this.rest.isShowTab())
+      this.tabBarElement.style.display = 'none';
+  }
   ionViewDidLoad() {
     
   }
