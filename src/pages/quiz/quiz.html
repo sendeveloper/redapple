@@ -1,12 +1,13 @@
 <ion-content>
  	<div class="quiz_question">
-    <h1>Quiz question 1</h1>
+    <h1>{{question['quiz_question']}}</h1>
     <h5>Goes here</h5>
   </div>
 	<ion-list radio-group [(ngModel)]="answer">
-		<!-- <ion-item *ngFor="" class="item-thumbnail-left item item-block">
-
-		</ion-item> -->
+		<ion-item *ngFor="let each of options" class="item-thumbnail-left item item-block">
+			<ion-label>{{each['quiz_options']}}</ion-label>
+    	<ion-radio value="{{each['quiz_options']}}"></ion-radio>
+		</ion-item>
   </ion-list>
   <div class="status">
   	<div class="status_left">
