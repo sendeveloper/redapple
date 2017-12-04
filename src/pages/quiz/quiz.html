@@ -9,6 +9,28 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
- 	How to create quiz?
+<ion-content>
+ 	<div class="quiz_question">
+    <h3>Quiz question 1</h3>
+    <h5>Goes here</h5>
+  </div>
+	<ion-list radio-group [(ngModel)]="answer">
+		<ion-item class="item-thumbnail-left item item-block item-ios">
+			<ion-label>Option 1</ion-label>
+    	<ion-radio value="1" checked></ion-radio>
+		</ion-item>
+		<ion-item class="item-thumbnail-left item item-block item-ios">
+			<ion-label>Option 2</ion-label>
+    	<ion-radio value="2"></ion-radio>
+		</ion-item>
+		<ion-item class="item-thumbnail-left item item-block item-ios">
+			<ion-label>Option 3</ion-label>
+    	<ion-radio value="3"></ion-radio>
+		</ion-item>
+  </ion-list>
+
+  <a (click)="goNext()" class="button button-positive button-block button-clear font24" [disabled]="answer!=''">
+  	Next
+  	<ion-icon name="arrow-forward"></ion-icon>
+  </a>
 </ion-content>

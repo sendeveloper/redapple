@@ -143,6 +143,26 @@ export class Rest {
         self.hideLoading();
       }
   }
+  public getQuizData(parent) {
+    var url = this.getApiURL() + "flag=quiz_get&ndc=" + this.getNdc();
+    var self = this;
+    this.showLoading(parent);
+    this.http.get(url).map(response => response.json()).subscribe(result => {
+        setTimeout(() => {
+          self.hideLoading();
+          if (result.status_code == 200)
+          {
+            parent.setData(result.data);
+          }
+          else
+          {
+          }
+        });
+      }),
+      err => {
+        self.hideLoading();
+      }
+  }
   public changeDateFormatUTC(date) {
     var d = new Date(date);
     var offset = d.getTimezoneOffset() * 60 * 1000;
