@@ -62,14 +62,21 @@ export class QuizPage {
         if (option['quiz_questions_id'] == question_id)
           this.options.push(option);
       }
+      console.log(this.data.options);
+      console.log(question_id);
+      console.log(this.question);
+      console.log(this.options);
     }
+  }
+  optionSelect(opt: any){
+    console.log(opt);
   }
   goNext() {
     if (this.pos < this.count)
     {
       this.pos++;
       console.log(this.pos);
-      initQuestion();
+      this.initQuestion();
     }
   }
   closeQuiz() {
