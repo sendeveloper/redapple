@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 
+import { PrescriptionReviewPage } from '../prescription-review/prescription-review';
 import { Rest } from '../../providers/rest';
 
 @IonicPage()
@@ -12,15 +13,17 @@ import { Rest } from '../../providers/rest';
 export class QuizPage {
   data: any;
   pos: number;
-  max: number;
+  count: number;
   answer: string;
+  generic_name: string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
         public loadingCtrl: LoadingController,
   			public menu: MenuController, public rest: Rest) {
   	this.menu = menu;
-    this.pos = 0;
-    this.max = 0;
+    this.pos = 1;
+    this.count = 0;
     this.answer = '';
+    this.generic_name = this.navParams.get('generic_name');
     rest.getQuizData(this);
   }
   
@@ -32,11 +35,18 @@ export class QuizPage {
   }
   setData(d) {
     this.data = d;
-    // this.max = 
+    this.pos = 1;
+    this.initQuestion();
     console.log(d);
+  }
+  initQuestion() {
+    
   }
   goNext() {
     this.pos++;
     console.log(this.pos);
+  }
+  closeQuiz() {
+    this.navCtrl.push(PrescriptionReviewPage, {'generic_name': this.generic_name});
   }
 }

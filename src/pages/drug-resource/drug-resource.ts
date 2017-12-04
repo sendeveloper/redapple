@@ -18,7 +18,7 @@ import { DrugInfoPage } from '../drug-info/drug-info';
 export class DrugResourcePage {
   pages = {
     0: ChatPharmacistPage,
-    1: QuizPage
+    // 1: QuizPage
   };
   info: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -34,8 +34,8 @@ export class DrugResourcePage {
     this.menu.open();
   }
   transit(i: number) {
-    if (i>1)
-      this.navCtrl.push(DrugInfoPage, {"index": (i+1)});
+    if (i>=1)
+      this.navCtrl.push(DrugInfoPage, {"index": (i+2)});
     else
       this.navCtrl.push(this.pages[i]);
   }

@@ -5,6 +5,11 @@
 		"desc": "Questions? Ask the pharmacist."
 	},
 	{
+		"src": "assets/imgs/drug-quiz.svg",
+		"title": "Test your knowledge",
+		"desc": "How much do you know about this medication?"
+	},
+	{
 		"src": "assets/imgs/drug_info_thumb.png",
 		"title": "Videos",
 		"desc": "Watch videos on how best to use this medicine"

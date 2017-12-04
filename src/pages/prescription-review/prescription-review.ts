@@ -47,7 +47,7 @@ export class PrescriptionReviewPage {
     else if (i == 2)
       this.navCtrl.push(DrugEffectPage);
     else if (i == 5)
-      this.navCtrl.push(QuizPage);
+      this.navCtrl.push(QuizPage, {'generic_name': this.generic_name});
     else if (i == 6)
       this.navCtrl.push(DrugResourcePage);
     else
