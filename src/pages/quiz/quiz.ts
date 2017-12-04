@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, MenuController, Content } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 
 import { PrescriptionReviewPage } from '../prescription-review/prescription-review';
@@ -11,6 +11,7 @@ import { Rest } from '../../providers/rest';
   templateUrl: 'quiz.html',
 })
 export class QuizPage {
+  @ViewChild(Content) content: Content;
   data: any;
   question: any;
   options: any;
@@ -18,7 +19,9 @@ export class QuizPage {
   count: number;
   answer: string;
   generic_name: string;
+  answered: number;
   tabBarElement: any;
+  dlg: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
         public loadingCtrl: LoadingController,
   			public menu: MenuController, public rest: Rest) {
@@ -26,9 +29,17 @@ export class QuizPage {
     this.pos = 0;
     this.count = 0;
     this.answer = '';
+    this.answered = -1;
     this.options = [];
     this.question = {};
     this.generic_name = this.navParams.get('generic_name');
+    this.dlg = {};
+    this.dlg['show'] = 0;
+    this.dlg['maxWidth'] = 600;
+    this.dlg['left'] = 0;
+    this.dlg['top'] = 0;
+    this.dlg['width'] = 200;
+    this.dlg['height'] = 100;
     this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
     rest.getQuizData(this);
   }
@@ -53,6 +64,7 @@ export class QuizPage {
     var question_id = this.data.questions[this.pos-1]['quiz_questions_id'];
     this.question = {};
     this.options = [];
+    this.answered = -1;
     if (question_id != undefined)
     {
       this.question = this.data.questions[this.pos-1];
@@ -68,8 +80,10 @@ export class QuizPage {
       console.log(this.options);
     }
   }
-  optionSelect(opt: any){
-    console.log(opt);
+  optionSelect(i: number){
+    this.answered = i;
+    console.log(i);
+    console.log(this.options[i]);
   }
   goNext() {
     if (this.pos < this.count)
@@ -81,5 +95,18 @@ export class QuizPage {
   }
   closeQuiz() {
     this.navCtrl.push(PrescriptionReviewPage, {'generic_name': this.generic_name});
+  }
+  toggleDlg(b: number)
+  {
+    if (b != 0)
+    {
+      var scrollPos = this.content.getContentDimensions().scrollTop;
+      this.dlg['width'] = this.platform.width() * 0.9;
+      if (this.dlg['width'] > this.dlg['maxWidth'])
+        this.dlg['width'] = this.dlg['maxWidth'];
+      this.dlg['left'] = (this.platform.width() - this.dlg['width']) / 2;
+      this.dlg['top'] = (this.platform.height() - this.dlg['height']) / 2 + scrollPos - 30;
+    }
+    this.dlg['show'] = b;
   }
 }
