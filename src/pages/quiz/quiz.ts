@@ -116,7 +116,7 @@ export class QuizPage {
       if (this.dlg['width'] > this.dlg['maxWidth'])
         this.dlg['width'] = this.dlg['maxWidth'];
       this.dlg['left'] = (this.platform.width() - this.dlg['width']) / 2;
-      this.dlg['top'] = (this.platform.height() - this.dlg['height']) / 2 + scrollPos - 30;
+      this.dlg['top'] = (this.platform.height() - this.dlg['height']) / 2 + scrollPos + 20;
     }
     this.dlg['show'] = b;
   }

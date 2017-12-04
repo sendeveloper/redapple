@@ -23,9 +23,13 @@ page-quiz {
 		position: absolute;
 		right: 10px;
 		top: 10px;
-		.button{
+		ion-icon{
 			font-size: 32px;
 			color: #FFF;
+			padding: 0;
 		}
+	}
+	.closeButton a{
+		padding: 0;
 	}
 }
