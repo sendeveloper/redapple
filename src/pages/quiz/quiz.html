@@ -26,11 +26,11 @@
 		  	</button>
 		</div>
 	</div>
-	<div class="ui-popup-screen in" *ngIf="dlg.show!=0" (click)="toggleDlg(0)"></div>
+	<div class="ui-popup-screen in" *ngIf="dlg.show!=0"></div>
 	<div class="ui-popup-container pop in" *ngIf="dlg.show!=0" [ngStyle]="{'max-width': dlg.maxWidth+'px','top': dlg.top+'px', 'left': dlg.left+'px', 'width': dlg.width+'px'}">
 	    <div data-role="popup" class="ui-body-inherit">
-	    	<p>Code not found. Please check code or contact the pharmacy for new Rx review code.</p>
-	    	<a href="#" class="close" (click)="toggleDlg(0)">OK</a>
+	    	<p>{{description}}</p>
+	    	<a href="#" class="button button-assertive button-block button-clear btn-flat" (click)="goContinue()">Continue</a>
 	    </div>
 	</div>
 </ion-content>

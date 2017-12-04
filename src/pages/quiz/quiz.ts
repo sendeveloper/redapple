@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController, Content } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, Content, Platform } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 
 import { PrescriptionReviewPage } from '../prescription-review/prescription-review';
@@ -20,16 +20,18 @@ export class QuizPage {
   answer: string;
   generic_name: string;
   answered: number;
+  description: string;
   tabBarElement: any;
   dlg: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-        public loadingCtrl: LoadingController,
+        public loadingCtrl: LoadingController, public platform: Platform,
   			public menu: MenuController, public rest: Rest) {
   	this.menu = menu;
     this.pos = 0;
     this.count = 0;
     this.answer = '';
     this.answered = -1;
+    this.description = '';
     this.options = [];
     this.question = {};
     this.generic_name = this.navParams.get('generic_name');
@@ -84,6 +86,11 @@ export class QuizPage {
     this.answered = i;
     console.log(i);
     console.log(this.options[i]);
+    if (this.options[i]['correct_answer'].toLowerCase() == 'no')
+      this.description = this.question['wrong_answer_description'];
+    else
+      this.description = this.question['correct_answer_description'];
+    this.toggleDlg(1);
   }
   goNext() {
     if (this.pos < this.count)
@@ -95,6 +102,10 @@ export class QuizPage {
   }
   closeQuiz() {
     this.navCtrl.push(PrescriptionReviewPage, {'generic_name': this.generic_name});
+  }
+  goContinue(){
+    this.goNext();
+    this.toggleDlg(0);
   }
   toggleDlg(b: number)
   {
