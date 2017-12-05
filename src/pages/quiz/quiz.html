@@ -3,10 +3,10 @@
     <h1>{{question['quiz_question']}}</h1>
   </div>
 	<div *ngIf="data!=null">
-		<ion-list radio-group [(ngModel)]="answer">
-			<ion-item *ngFor="let each of options;let i=index" class="item-thumbnail-left item item-block">
-				<ion-label>{{each['quiz_options']}}</ion-label>
-	    	<ion-radio value="{{each['quiz_options']}}" (click)="optionSelect(i)"></ion-radio>
+		<ion-list radio-group [(ngModel)]="answer" [disabled]="answered!=-1">
+			<ion-item *ngFor="let each of options;let i=index" class="item-thumbnail-left item item-block" [ngClass]="(answered!=-1 && each['correct_answer']=='Yes') ? 'correctAnswer' : ''">
+					<ion-label>{{each['quiz_options']}}</ion-label>
+	    		<ion-radio value="{{each['quiz_options']}}" (click)="optionSelect(i)"></ion-radio>
 			</ion-item>
 	  </ion-list>
 	  <div class="status">

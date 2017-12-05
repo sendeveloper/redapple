@@ -104,7 +104,10 @@ export class QuizPage {
     this.navCtrl.push(PrescriptionReviewPage, {'generic_name': this.generic_name});
   }
   goContinue(){
-    this.goNext();
+    console.log(this.answered);
+    console.log(this.options[this.answered]);
+    if (!this.options[this.answered]['correct_answer'].toLowerCase() == 'no')
+      this.goNext();
     this.toggleDlg(0);
   }
   toggleDlg(b: number)
@@ -116,7 +119,7 @@ export class QuizPage {
       if (this.dlg['width'] > this.dlg['maxWidth'])
         this.dlg['width'] = this.dlg['maxWidth'];
       this.dlg['left'] = (this.platform.width() - this.dlg['width']) / 2;
-      this.dlg['top'] = (this.platform.height() - this.dlg['height']) / 2 + scrollPos + 20;
+      this.dlg['top'] = (this.platform.height() - this.dlg['height']) / 2 + scrollPos + 30;
     }
     this.dlg['show'] = b;
   }
