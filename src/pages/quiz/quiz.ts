@@ -12,12 +12,14 @@ import { Rest } from '../../providers/rest';
 })
 export class QuizPage {
   @ViewChild(Content) content: Content;
+  page: any;
   data: any;
   question: any;
   options: any;
   pos: number;
   count: number;
   answer: string;
+  user_answer: string;
   generic_name: string;
   answered: number;
   description: string;
@@ -27,6 +29,7 @@ export class QuizPage {
         public loadingCtrl: LoadingController, public platform: Platform,
   			public menu: MenuController, public rest: Rest) {
   	this.menu = menu;
+    this.page = 0;
     this.pos = 0;
     this.count = 0;
     this.answer = '';
@@ -34,6 +37,7 @@ export class QuizPage {
     this.description = '';
     this.options = [];
     this.question = {};
+    this.user_answer = [];
     this.generic_name = this.navParams.get('generic_name');
     this.dlg = {};
     this.dlg['show'] = 0;
@@ -76,16 +80,16 @@ export class QuizPage {
         if (option['quiz_questions_id'] == question_id)
           this.options.push(option);
       }
-      console.log(this.data.options);
-      console.log(question_id);
-      console.log(this.question);
-      console.log(this.options);
     }
   }
   optionSelect(i: number){
+    var obj = {};
     this.answered = i;
     console.log(i);
     console.log(this.options[i]);
+    obj['qid'] = this.options[i]['quiz_questions_id'];
+    obj['answer'] = this.options[i]['quiz_options'];
+    this.user_answer.push(obj);
     if (this.options[i]['correct_answer'].toLowerCase() == 'no')
       this.description = this.question['wrong_answer_description'];
     else
@@ -98,6 +102,15 @@ export class QuizPage {
       this.pos++;
       this.initQuestion();
     }
+    else
+    {
+      this.rest.saveQuestions(this, this.user_answer);
+    }
+  }
+  setPage(n: number){
+    this.page = n;
+    if (n != 0 && this.rest.isShowTab())
+        this.tabBarElement.style.display = 'flex';
   }
   closeQuiz() {
     this.navCtrl.push(PrescriptionReviewPage, {'generic_name': this.generic_name});

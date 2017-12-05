@@ -1,36 +1,48 @@
 <ion-content>
- 	<div class="quiz_question">
-    <h1>{{question['quiz_question']}}</h1>
-  </div>
-	<div *ngIf="data!=null">
-		<ion-list radio-group [(ngModel)]="answer" [disabled]="answered!=-1">
-			<ion-item *ngFor="let each of options;let i=index" class="item-thumbnail-left item item-block" [ngClass]="(answered!=-1 && each['correct_answer']=='Yes') ? 'correctAnswer' : ''">
-					<ion-label>{{each['quiz_options']}}</ion-label>
-	    		<ion-radio value="{{each['quiz_options']}}" (click)="optionSelect(i)"></ion-radio>
-			</ion-item>
-	  </ion-list>
-	  <div class="status">
-	  	<div class="status_left">
-	  		<p>Question {{pos}} of {{count}}</p>
-	  	</div>
-	  	<div class="status_right">
-		  	<button (click)="goNext()" class="button button-positive button-block button-clear font24" [disabled]="answer==''">
-		  		Next
-		  		<ion-icon name="arrow-forward"></ion-icon>
-		  	</button>
-		  </div>
+	<div *ngIf="page==0">
+	 	<div class="quiz_question">
+	    <h1>{{question['quiz_question']}}</h1>
+	  </div>
+		<div *ngIf="data!=null">
+			<ion-list radio-group [(ngModel)]="answer">
+				<ion-item *ngFor="let each of options;let i=index" class="item-thumbnail-left item item-block" [ngClass]="(answered!=-1 && each['correct_answer']=='Yes') ? 'correctAnswer' : ''">
+						<ion-label>{{each['quiz_options']}}</ion-label>
+		    		<ion-radio value="{{each['quiz_options']}}" (click)="optionSelect(i)" [disabled]="answered!=-1"></ion-radio>
+				</ion-item>
+		  </ion-list>
+		  <div class="status">
+		  	<div class="status_left">
+		  		<p>Question {{pos}} of {{count}}</p>
+		  	</div>
+		  	<div class="status_right">
+			  	<button (click)="goNext()" class="button button-positive button-block button-clear font24" [disabled]="answered==-1">
+			  		Next
+			  		<ion-icon name="arrow-forward"></ion-icon>
+			  	</button>
+			  </div>
+			</div>
+			<div class="closeButton">
+				<a (click)="closeQuiz()" icon-only>
+			  		<ion-icon name="close"></ion-icon>
+				</a>
+			</div>
 		</div>
-		<div class="closeButton">
-			<a (click)="closeQuiz()" icon-only>
-		  		<ion-icon name="close"></ion-icon>
-			</a>
+		<div class="ui-popup-screen in" *ngIf="dlg.show!=0"></div>
+		<div class="ui-popup-container pop in" *ngIf="dlg.show!=0" [ngStyle]="{'max-width': dlg.maxWidth+'px','top': dlg.top+'px', 'left': dlg.left+'px', 'width': dlg.width+'px'}">
+		    <div data-role="popup" class="ui-body-inherit">
+		    	<p>{{description}}</p>
+		    	<a class="button button-assertive button-block btn-flat" (click)="goContinue()">Continue</a>
+		    </div>
 		</div>
 	</div>
-	<div class="ui-popup-screen in" *ngIf="dlg.show!=0"></div>
-	<div class="ui-popup-container pop in" *ngIf="dlg.show!=0" [ngStyle]="{'max-width': dlg.maxWidth+'px','top': dlg.top+'px', 'left': dlg.left+'px', 'width': dlg.width+'px'}">
-	    <div data-role="popup" class="ui-body-inherit">
-	    	<p>{{description}}</p>
-	    	<a class="button button-assertive button-block btn-flat" (click)="goContinue()">Continue</a>
-	    </div>
+	<div *ngIf="page!=0">
+		<div class="quiz_question">
+	    <h1>Thank you</h1>
+	    <ion-buttons end>
+	      <button ion-button icon-only (tap)="showMenu()">
+	        <ion-icon name="menu"></ion-icon>
+	      </button>
+	    </ion-buttons>
+	  </div>
 	</div>
 </ion-content>
