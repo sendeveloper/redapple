@@ -96,7 +96,6 @@ export class QuizPage {
     if (this.pos < this.count)
     {
       this.pos++;
-      console.log(this.pos);
       this.initQuestion();
     }
   }
@@ -104,9 +103,7 @@ export class QuizPage {
     this.navCtrl.push(PrescriptionReviewPage, {'generic_name': this.generic_name});
   }
   goContinue(){
-    console.log(this.answered);
-    console.log(this.options[this.answered]);
-    if (!this.options[this.answered]['correct_answer'].toLowerCase() == 'no')
+    if (this.options[this.answered]['correct_answer'].toLowerCase() == 'yes')
       this.goNext();
     this.toggleDlg(0);
   }
