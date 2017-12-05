@@ -40,8 +40,8 @@
   <div class="ui-popup-screen in" *ngIf="dlg.show!=0" (click)="toggleDlg(0)"></div>
   <div class="ui-popup-container pop in" *ngIf="dlg.show!=0" [ngStyle]="{'max-width': dlg.maxWidth+'px','top': dlg.top+'px', 'left': dlg.left+'px', 'width': dlg.width+'px'}">
       <div data-role="popup" class="ui-body-inherit">
-        <p>Date of birth does not match Rx review code. Please contact the pharmacy.</p>
-        <a href="#" class="close" (click)="toggleDlg(0)">OK</a>
+        <p>{{warning_msg}}</p>
+        <button class="close_dlg" (click)="toggleDlg(0)">OK</button>
       </div>
   </div>
 </ion-content>

@@ -15,6 +15,7 @@ export class DateOfBirthPage {
 	data: any;
   birthday: string;
   dlg: any;
+  warning_msg: string;
   tabBarElement: any;
   constructor(public navCtrl: NavController, 
         public navParams: NavParams, 
@@ -59,14 +60,23 @@ export class DateOfBirthPage {
     this.dlg['show'] = b;
   }
   getList() {
-    var birth1, birth2;
-    birth1 = this.rest.changeDateFormat(this.birthday);
-    birth2 = this.rest.changeDateFormatUTC(this.data['date_of_birth']);
-    if (birth1 != birth2)
+    if (this.birthday == ""){
+      this.warning_msg = "Need Date of Birth";
       this.toggleDlg(1);
-    else{
-      this.rest.setFirstName(this.data['patient_first_name']);
-      this.navCtrl.push(PrescriptionListPage);
+    }
+    else
+    {
+      var birth1, birth2;
+      birth1 = this.rest.changeDateFormat(this.birthday);
+      birth2 = this.rest.changeDateFormatUTC(this.data['date_of_birth']);
+      if (birth1 != birth2){
+        this.warning_msg = "Date of birth does not match Rx review code. Please contact the pharmacy.";
+        this.toggleDlg(1);
+      }
+      else{
+        this.rest.setFirstName(this.data['patient_first_name']);
+        this.navCtrl.push(PrescriptionListPage);
+      }
     }
   }
 }

@@ -19,5 +19,4 @@ export class TabsPage {
   ionViewDidLoad() {
   	
   }
-
 }
