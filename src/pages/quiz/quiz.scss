@@ -48,4 +48,12 @@ page-quiz {
 	.item.correctAnswer {
 		border: 1px solid #00ff00 !important;
 	}
+	.bar-buttons{
+		position: absolute;
+	    top: 0;
+	    right: 0;
+	    button{
+	    	background-color: #b917b9;
+	    }
+	}
 }

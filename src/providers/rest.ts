@@ -164,15 +164,16 @@ export class Rest {
       }
   }
   public saveQuestions(parent, answers){
+    var url = this.getApiURL() + "flag=quiz_save&code=" + this.getCode() + "";
     var self = this;
-    var param = {
-      'flag': 'quiz_save',
-      'ndc': this.getNdc(),
-      'answers': answers
+    for (var i=0;i<answers.length;i++)
+    {
+      url += '&qid' + (i+1) + '=' + answers[i]['qid'];
+      url += '&answer' + (i+1) + '=' + answers[i]['answer'];
     }
-    console.log(param);
+    url += '&count=' + answers.length;
     this.showLoading(parent);
-    this.http.post(this.getApiURL(), param).map(response => response.json()).subscribe(result => {
+    this.http.get(url).map(response => response.json()).subscribe(result => {
         setTimeout(() => {
           self.hideLoading();
           if (result.status_code == 200)
