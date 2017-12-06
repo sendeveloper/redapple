@@ -19,7 +19,7 @@ export class QuizPage {
   pos: number;
   count: number;
   answer: string;
-  user_answer: string;
+  user_answer: any;
   generic_name: string;
   answered: number;
   description: string;
@@ -52,6 +52,9 @@ export class QuizPage {
   ionViewWillEnter() {
     if (this.rest.isShowTab())
       this.tabBarElement.style.display = 'none';
+  }
+  ionViewWillLeave() {
+    this.navCtrl.parent._tabs[0].tabTitle = "Home";
   }
   ionViewDidLoad() {
     
@@ -109,8 +112,10 @@ export class QuizPage {
   }
   setPage(n: number){
     this.page = n;
-    if (n != 0 && this.rest.isShowTab())
-        this.tabBarElement.style.display = 'flex';
+    if (n != 0 && this.rest.isShowTab()){
+      this.tabBarElement.style.display = 'flex';
+      this.navCtrl.parent._tabs[0].tabTitle = "Exit Review";
+    }
   }
   closeQuiz() {
     this.navCtrl.push(PrescriptionReviewPage, {'generic_name': this.generic_name});

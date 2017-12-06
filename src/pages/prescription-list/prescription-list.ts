@@ -35,11 +35,13 @@ export class PrescriptionListPage {
     rest.getDrugProperty(this);
   }
   ionViewWillEnter() {
-    if (this.rest.isShowTab())
+    if (this.rest.isShowTab()){
       this.tabBarElement.style.display = 'flex';
+      this.navCtrl.parent._tabs[0].tabTitle = "Exit Review";
+    }
   }
   ionViewWillLeave() {
-    
+    this.navCtrl.parent._tabs[0].tabTitle = "Home";
   }
   ionViewDidLoad() {
     
