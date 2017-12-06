@@ -17,6 +17,9 @@ export class Rest {
   private first_name: string;
   private loading: Loading;
   constructor(public http: Http) {
+    this.resetData();
+  }
+  public resetData() {
     this.loading = null;
     this.deviceNumber = 0;
     this.code = '';

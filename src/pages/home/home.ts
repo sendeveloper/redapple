@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, MenuController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, MenuController, Content, Platform } from 'ionic-angular';
 import { NavController } from 'ionic-angular';
 
 import { Rest } from '../../providers/rest';
@@ -12,21 +12,56 @@ import { EnterCodePage } from '../enter-code/enter-code';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  @ViewChild(Content) content: Content;
   tabBarElement: any;
-  constructor(public navCtrl: NavController, public menu: MenuController, public rest: Rest) {
+  dlg: any;
+  constructor(public navCtrl: NavController, public menu: MenuController, 
+            public platform: Platform, public rest: Rest) {
     this.menu = menu;
     this.tabBarElement = null;
+    this.initDlg();
+  }
+  ionViewDidLoad() {
+    
+  }
+  initDlg(){
+    this.dlg = {};
+    this.dlg['show'] = 0;
+    this.dlg['maxWidth'] = 600;
+    this.dlg['left'] = 0;
+    this.dlg['top'] = 0;
+    this.dlg['width'] = 200;
+    this.dlg['height'] = 70;
   }
   ionViewWillEnter() {
     var self = this;
     setTimeout(function() {
+      if (self.rest.getCode() != '')
+      {
+        self.rest.resetData();
+        self.initDlg();
+        console.log(this.dlg);
+        self.toggleDlg(1);
+      }
       self.tabBarElement = document.querySelector('.tabbar.show-tabbar');
       if (self.tabBarElement)
       {
-        if (self.rest.isShowTab())
-          self.tabBarElement.style.display = 'flex';
+          self.tabBarElement.style.display = 'none';
       }
     }, 400);
+  }
+  toggleDlg(b: number)
+  {
+    if (b != 0)
+    {
+      var scrollPos = this.content.getContentDimensions().scrollTop;
+      this.dlg['width'] = this.platform.width() * 0.9;
+      if (this.dlg['width'] > this.dlg['maxWidth'])
+        this.dlg['width'] = this.dlg['maxWidth'];
+      this.dlg['left'] = (this.platform.width() - this.dlg['width']) / 2;
+      this.dlg['top'] = (this.platform.height() - this.dlg['height']) / 2 + scrollPos - 30;
+    }
+    this.dlg['show'] = b;
   }
   ionViewWillLeave() {
   }

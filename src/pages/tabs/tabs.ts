@@ -9,9 +9,8 @@ import { Rest } from '../../providers/rest';
 })
 export class TabsPage {
   tab1Root: string = 'HomePage';
-  tab2Root: string = 'ChatPharmacistPage';
-  tab3Root: string = 'PrescriptionListPage';
-  tab4Root: string = 'PrescriptionReviewPage';
+  tab2Root: string = 'PrescriptionListPage';
+  tab3Root: string = 'PrescriptionReviewPage';
   tabIndex: number;
   constructor(public navParams: NavParams, public rest: Rest) {
   	this.tabIndex = navParams.data.tabIndex || 0;
