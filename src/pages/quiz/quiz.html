@@ -21,10 +21,8 @@
 			  	</button>
 			  </div>
 			</div>
-			<div class="closeButton">
-				<a (click)="closeQuiz()" icon-only>
-			  		<ion-icon name="close"></ion-icon>
-				</a>
+			<div class="closeButton" (click)="closeQuiz()" icon-only>
+			  	<ion-icon name="close"></ion-icon>
 			</div>
 		</div>
 		<div class="ui-popup-screen in" *ngIf="dlg.show!=0"></div>
