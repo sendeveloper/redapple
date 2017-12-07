@@ -1,5 +1,15 @@
 page-prescription-list {
-
+	.refreshBtn{
+		text-align: center;
+		.button-ios
+		{
+			background-color: #e42112;
+			margin: 0 auto;
+		}
+		.button-ios:hover{
+			color: #FFF;
+		}
+	}
 }
 .tabbar.show-tabbar{
 	display: none;

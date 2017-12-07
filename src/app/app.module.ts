@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
+import { SMS } from '@ionic-native/sms';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,6 +29,7 @@ import { Rest } from '../providers/rest';
   providers: [
     StatusBar,
     SplashScreen,
+    SMS,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Rest
   ]

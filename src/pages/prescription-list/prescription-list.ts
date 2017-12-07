@@ -40,7 +40,7 @@ export class PrescriptionListPage {
       this.navCtrl.parent._tabs[0].tabTitle = "Exit Review";
     }
   }
-  refresh() {
+  reloadData() {
     console.log('a');
     this.rest.getDrugProperty(this);
   }
@@ -57,7 +57,9 @@ export class PrescriptionListPage {
   showMenu() {
     this.menu.open();
   }
-  goReview(generic_name) {
-    this.navCtrl.push(PrescriptionReviewPage, {'generic_name': generic_name});
+  goReview(data) {
+    console.log(data);
+    this.rest.setNdc(data['ndc'])
+    this.navCtrl.push(PrescriptionReviewPage, {'generic_name': data['generic_name']});
   }
 }

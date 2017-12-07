@@ -28,8 +28,8 @@
     </div>
     <div class="spacer" style="height: 25px;"></div>
     <p class="center">Please review and contact the Pharmacy with any questions.</p>
-    <div style="align: center;">
-      <button icon-only ion-button (tab)="refresh()">
+    <div class="refreshBtn">
+      <button icon-only ion-button (click)="reloadData()">
         <ion-icon name="refresh"></ion-icon>
       </button>
     </div>
@@ -50,7 +50,7 @@
         </p>
         <div class="spacer" style="height: 25px;"></div>
         <p class="center">
-          <a (click)="goReview(each['generic_name'])" class="button button-calm" style="width: 200px;">Learn More</a>
+          <a (click)="goReview(each)" class="button button-calm" style="width: 200px;">Learn More</a>
         </p>
       </div>
     </ng-container>

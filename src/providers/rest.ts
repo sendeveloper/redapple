@@ -13,6 +13,7 @@ let restApis = [
 export class Rest {
   private deviceNumber: number;
   private code: string;
+  private cell_phone: string;
   private ndc: string;
   private first_name: string;
   private loading: Loading;
@@ -23,12 +24,15 @@ export class Rest {
     this.loading = null;
     this.deviceNumber = 0;
     this.code = '';
+    this.cell_phone = '';
     this.ndc = '';
     this.first_name = '';
   }
   public isShowTab() { return (this.ndc != '' && this.first_name != '') ? true : false}
   public setCode(c) {this.code = c;}
   public getCode() { return this.code;}
+  public setCellPhone(c) {this.cell_phone = c;}
+  public getCellPhone() { return this.cell_phone;}
   public setNdc(n) {this.ndc = n;}
   public getNdc() {return this.ndc;}
   public setFirstName(n) {this.first_name = n;}
@@ -49,7 +53,8 @@ export class Rest {
           self.hideLoading();
           if (result.status_code == 200 && result.count>0)
           {
-            this.setNdc(result.data[0]['ndc1']);
+            self.setNdc(result.data[0]['ndc1']);
+            self.setCellPhone(result.data[0]['patient_cellphone']);
             parent.navCtrl.push(transitionPage, {'data': result.data[0]});
           }
           else
@@ -67,7 +72,7 @@ export class Rest {
     }
   }
   public getDrugProperty(parent) {
-    var url = this.getApiURL() + "flag=get_drug_property&ndc=" + this.getNdc();
+    var url = this.getApiURL() + "flag=get_drug_property&code=" + this.getCode();
     var self = this;
     this.showLoading(parent);
     this.http.get(url).map(response => response.json()).subscribe(result => {

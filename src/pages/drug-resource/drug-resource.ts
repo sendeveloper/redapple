@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angul
 import { DomSanitizer } from '@angular/platform-browser';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { SMS } from '@ionic-native/sms';
 
 import { Rest } from '../../providers/rest';
 
@@ -22,7 +23,7 @@ export class DrugResourcePage {
   };
   info: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  			public menu: MenuController, public rest: Rest,
+  			public menu: MenuController, public rest: Rest, private smsVar: SMS,
         public http: Http, private sanitizer: DomSanitizer) {
   	this.menu = menu;
   }
@@ -36,8 +37,23 @@ export class DrugResourcePage {
   transit(i: number) {
     if (i>=1)
       this.navCtrl.push(DrugInfoPage, {"index": (i+2)});
-    else
-      this.navCtrl.push(this.pages[i]);
+    else{
+      console.log('send sms', this.rest.getCellPhone());
+      var options={
+          replaceLineBreaks: false, // true to replace \n by a new line, false by default
+          android: {
+               intent: 'INTENT'  // Opens Default sms app
+              //intent: '' // Sends sms without opening default sms app
+            }
+      }
+      this.smsVar.send(this.rest.getCellPhone(), 'Hello world!',options)
+        .then(()=>{
+          alert("success");
+        },()=>{
+          alert("failed");
+        });
+      // this.navCtrl.push(this.pages[i]);
+    }
   }
   getJsonData() {
     this.info = null

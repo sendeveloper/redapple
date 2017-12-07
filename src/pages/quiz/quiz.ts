@@ -97,7 +97,7 @@ export class QuizPage {
     obj['answer'] = this.options[i]['quiz_options'];
     this.user_answer.push(obj);
     if (this.options[i]['correct_answer'].toLowerCase() == 'no')
-      this.description = this.question['wrong_answer_description'];
+      this.description = this.question['wrong_answer_description'] + "<p>Click next to go to next question</p>";
     else{
       this.correctCount ++;
       this.description = this.question['correct_answer_description'];
@@ -119,7 +119,7 @@ export class QuizPage {
     this.page = n;
     if (n != 0 && this.rest.isShowTab()){
       var percent;
-      percent = parseInt(this.correctCount * 100 / this.count);
+      percent = Math.round(this.correctCount * 100 / this.count);
       if (percent == 100)
         this.thank_msg = "Perfect! You scored 100%";
       else if (percent >= 50)
