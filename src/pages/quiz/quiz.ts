@@ -24,6 +24,9 @@ export class QuizPage {
   answered: number;
   description: string;
   tabBarElement: any;
+  customClasses: any;
+  correctCount: number;
+  thank_msg: string;
   dlg: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
         public loadingCtrl: LoadingController, public platform: Platform,
@@ -32,6 +35,7 @@ export class QuizPage {
     this.page = 0;
     this.pos = 0;
     this.count = 0;
+    this.correctCount = 0;
     this.answer = '';
     this.answered = -1;
     this.description = '';
@@ -46,6 +50,8 @@ export class QuizPage {
     this.dlg['top'] = 0;
     this.dlg['width'] = 200;
     this.dlg['height'] = 100;
+    this.customClasses = ["purple", "red", "green", "blue"];
+    this.thank_msg = "";
     this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
     rest.getQuizData(this);
   }
@@ -67,7 +73,6 @@ export class QuizPage {
     this.pos = 1;
     this.count = this.data.questions.length;
     this.initQuestion();
-    console.log(d);
   }
   initQuestion() {
     var question_id = this.data.questions[this.pos-1]['quiz_questions_id'];
@@ -88,15 +93,15 @@ export class QuizPage {
   optionSelect(i: number){
     var obj = {};
     this.answered = i;
-    console.log(i);
-    console.log(this.options[i]);
     obj['qid'] = this.options[i]['quiz_questions_id'];
     obj['answer'] = this.options[i]['quiz_options'];
     this.user_answer.push(obj);
     if (this.options[i]['correct_answer'].toLowerCase() == 'no')
       this.description = this.question['wrong_answer_description'];
-    else
+    else{
+      this.correctCount ++;
       this.description = this.question['correct_answer_description'];
+    }
     this.toggleDlg(1);
   }
   goNext() {
@@ -113,6 +118,14 @@ export class QuizPage {
   setPage(n: number){
     this.page = n;
     if (n != 0 && this.rest.isShowTab()){
+      var percent;
+      percent = parseInt(this.correctCount * 100 / this.count);
+      if (percent == 100)
+        this.thank_msg = "Perfect! You scored 100%";
+      else if (percent >= 50)
+        this.thank_msg = "Good Job! You scored " + percent + "%";
+      else
+        this.thank_msg = "You scored " + percent + "%";
       this.tabBarElement.style.display = 'flex';
       this.navCtrl.parent._tabs[0].tabTitle = "Exit Review";
     }

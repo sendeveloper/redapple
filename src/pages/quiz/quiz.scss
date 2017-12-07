@@ -2,7 +2,6 @@ page-quiz {
 	.quiz_question{
 		text-align: center;
 		padding: 50px 15px 20px;
-		background: #b917b9;
 		color: #FFF;
 	}
 	.status{
@@ -41,10 +40,6 @@ page-quiz {
 			padding: 0;
 		}
 	}
-	.item-thumbnail-left.item.item-block{
-		/*border-top: 0px none;
-		border-bottom: 0px none;*/
-	}
 	.item.correctAnswer {
 		border: 1px solid #00ff00 !important;
 	}
@@ -55,5 +50,17 @@ page-quiz {
 	    button{
 	    	background-color: #b917b9;
 	    }
+	}
+	.red{
+		background-color: #ff0000;
+	}
+	.green{
+		background-color: #00ff00;
+	}
+	.blue{
+		background-color: #0000ff;
+	}
+	.purple{
+		background-color: #b917b9;
 	}
 }
