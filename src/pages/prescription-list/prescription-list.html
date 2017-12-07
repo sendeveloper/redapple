@@ -28,6 +28,11 @@
     </div>
     <div class="spacer" style="height: 25px;"></div>
     <p class="center">Please review and contact the Pharmacy with any questions.</p>
+    <div style="align: center;">
+      <button icon-only ion-button (tab)="refresh()">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+    </div>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <h4 class="center">{{data_count}} Rx found:(output # in db)</h4>

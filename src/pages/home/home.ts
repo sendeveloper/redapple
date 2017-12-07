@@ -40,7 +40,6 @@ export class HomePage {
       {
         self.rest.resetData();
         self.initDlg();
-        console.log(this.dlg);
         self.toggleDlg(1);
       }
       self.tabBarElement = document.querySelector('.tabbar.show-tabbar');

@@ -40,6 +40,10 @@ export class PrescriptionListPage {
       this.navCtrl.parent._tabs[0].tabTitle = "Exit Review";
     }
   }
+  refresh() {
+    console.log('a');
+    this.rest.getDrugProperty(this);
+  }
   ionViewWillLeave() {
     this.navCtrl.parent._tabs[0].tabTitle = "Home";
   }
