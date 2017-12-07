@@ -46,7 +46,7 @@ export class DrugResourcePage {
               //intent: '' // Sends sms without opening default sms app
             }
       }
-      this.smsVar.send(this.rest.getCellPhone(), 'Hello world!',options)
+      this.smsVar.send(this.rest.getCellPhone(), '',options)
         .then(()=>{
           alert("success");
         },()=>{
