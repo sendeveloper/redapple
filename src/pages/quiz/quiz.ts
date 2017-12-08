@@ -22,6 +22,7 @@ export class QuizPage {
   user_answer: any;
   generic_name: string;
   answered: number;
+  item_height: number;
   description: string;
   tabBarElement: any;
   customClasses: any;
@@ -38,6 +39,7 @@ export class QuizPage {
     this.correctCount = 0;
     this.answer = '';
     this.answered = -1;
+    this.item_height = 0;
     this.description = '';
     this.options = [];
     this.question = {};
@@ -88,6 +90,10 @@ export class QuizPage {
         if (option['quiz_questions_id'] == question_id)
           this.options.push(option);
       }
+      if (this.options.length > 0)
+        this.item_height = Math.round((this.platform.height() - 240) / this.options.length);
+      else
+        this.item_height = 40;
     }
   }
   optionSelect(i: number){
@@ -134,7 +140,7 @@ export class QuizPage {
     this.navCtrl.push(PrescriptionReviewPage, {'generic_name': this.generic_name});
   }
   goContinue(){
-    if (this.options[this.answered]['correct_answer'].toLowerCase() == 'yes')
+    // if (this.options[this.answered]['correct_answer'].toLowerCase() == 'yes')
       this.goNext();
     this.toggleDlg(0);
   }

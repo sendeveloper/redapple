@@ -5,7 +5,7 @@
 	  </div>
 		<div *ngIf="data!=null">
 			<ion-list radio-group [(ngModel)]="answer">
-				<ion-item *ngFor="let each of options;let i=index" class="item-thumbnail-left item item-block" [ngClass]="(answered!=-1 && each['correct_answer']=='Yes') ? 'correctAnswer' : ''">
+				<ion-item *ngFor="let each of options;let i=index" class="item-thumbnail-left item item-block" [ngClass]="(answered!=-1 && each['correct_answer']=='Yes') ? 'correctAnswer' : ''" [ngStyle]="{'height': item_height + 'px'}">
 						<ion-label>{{each['quiz_options']}}</ion-label>
 		    		<ion-radio value="{{each['quiz_options']}}" (click)="optionSelect(i)" [disabled]="answered!=-1"></ion-radio>
 				</ion-item>
@@ -33,7 +33,7 @@
 		    </div>
 		</div>
 	</div>
-	<div *ngIf="page!=0">
+	<div *ngIf="page==1">
 		<div class="quiz_question {{customClasses[0]}}">
 	    <h1>Thank you</h1>
 	    <p>{{thank_msg}}</p>
@@ -42,6 +42,22 @@
 	        <ion-icon name="menu"></ion-icon>
 	      </button>
 	    </ion-buttons>
+	    <div class="closeButton" (click)="closeQuiz()" icon-only>
+			  	<ion-icon name="close"></ion-icon>
+			</div>
+	  </div>
+	</div>
+	<div *ngIf="page==2">
+		<div class="quiz_question {{customClasses[0]}}">
+	    <h1>There isn't any quiz</h1>
+	    <ion-buttons end>
+	      <button ion-button icon-only (tap)="showMenu()">
+	        <ion-icon name="menu"></ion-icon>
+	      </button>
+	    </ion-buttons>
+	    <div class="closeButton" (click)="closeQuiz()" icon-only>
+			  	<ion-icon name="close"></ion-icon>
+			</div>
 	  </div>
 	</div>
 </ion-content>

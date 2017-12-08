@@ -160,10 +160,14 @@ export class Rest {
           self.hideLoading();
           if (result.status_code == 200)
           {
-            parent.setData(result.data);
+            if (result.data['questions'] == undefined || result.data['questions'].length == 0)
+              parent.setPage(2);
+            else
+              parent.setData(result.data);
           }
           else
           {
+            parent.setPage(2);
           }
         });
       }),
@@ -190,6 +194,7 @@ export class Rest {
           }
           else
           {
+            parent.setPage(1);
           }
         });
       }),
