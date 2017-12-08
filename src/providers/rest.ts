@@ -16,6 +16,7 @@ export class Rest {
   private cell_phone: string;
   private ndc: string;
   private first_name: string;
+  private generic_name: string;
   private loading: Loading;
   constructor(public http: Http) {
     this.resetData();
@@ -27,6 +28,7 @@ export class Rest {
     this.cell_phone = '';
     this.ndc = '';
     this.first_name = '';
+    this.generic_name = '';
   }
   public isShowTab() { return (this.ndc != '' && this.first_name != '') ? true : false}
   public setCode(c) {this.code = c;}
@@ -37,6 +39,8 @@ export class Rest {
   public getNdc() {return this.ndc;}
   public setFirstName(n) {this.first_name = n;}
   public getFirstName() {return this.first_name;}
+  public setGenericName(n) {this.generic_name = n;}
+  public getGenericName() {return this.generic_name;}
   public setDeviceNumber(device) {
       this.deviceNumber = device;
   }

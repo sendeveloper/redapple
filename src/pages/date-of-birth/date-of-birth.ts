@@ -76,8 +76,7 @@ export class DateOfBirthPage {
       }
       else{
         this.rest.setFirstName(this.data['patient_first_name']);
-        this.navCtrl.popToRoot();
-        this.navCtrl.setRoot(TabsPage, {"tabIndex": 1});
+        this.navCtrl.parent.select(1);
       }
     }
   }

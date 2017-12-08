@@ -61,6 +61,8 @@ export class PrescriptionListPage {
   }
   goReview(data) {
     this.rest.setNdc(data['ndc'])
-    this.navCtrl.push(PrescriptionReviewPage, {'generic_name': data['generic_name']});
+    this.rest.setGenericName(data['generic_name']);
+    console.log(data['generic_name'], this.rest.getGenericName());
+    this.navCtrl.parent.select(2);
   }
 }

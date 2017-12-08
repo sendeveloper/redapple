@@ -26,9 +26,9 @@ export class PrescriptionReviewPage {
           public http: Http, private sanitizer: DomSanitizer) {
   	this.menu = menu;
     this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
-    this.generic_name = this.navParams.get('generic_name');
   }
   ionViewWillEnter() {
+    this.generic_name = this.rest.getGenericName();
     if (this.rest.isShowTab()){
       this.tabBarElement.style.display = 'flex';
       this.navCtrl.parent._tabs[0].tabTitle = "Exit Review";
