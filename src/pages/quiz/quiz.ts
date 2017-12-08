@@ -91,7 +91,7 @@ export class QuizPage {
           this.options.push(option);
       }
       if (this.options.length > 0)
-        this.item_height = Math.round((this.platform.height() - 240) / this.options.length);
+        this.item_height = Math.round((this.platform.height() - 260) / this.options.length);
       else
         this.item_height = 40;
     }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 
 import { Rest } from '../../providers/rest';
 
@@ -18,9 +19,10 @@ export class PrescriptionListPage {
   custom_class: any;
   tabBarElement: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-        public loadingCtrl: LoadingController,
+        public loadingCtrl: LoadingController, public events: Events,
   			public menu: MenuController, public rest: Rest) {
   	this.menu = menu;
+    console.log(this.menu);
     this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
   	this.data = null;
     this.custom_class = {};
@@ -36,6 +38,7 @@ export class PrescriptionListPage {
   }
   ionViewWillEnter() {
     if (this.rest.isShowTab()){
+      this.events.publish('menu:changed', 'Exit Review');
       this.tabBarElement.style.display = 'flex';
       this.navCtrl.parent._tabs[0].tabTitle = "Exit Review";
     }

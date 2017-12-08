@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, MenuController, Content, Platform } from 'ionic-angular';
 import { NavController } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 
 import { Rest } from '../../providers/rest';
 
@@ -15,7 +16,7 @@ export class HomePage {
   @ViewChild(Content) content: Content;
   tabBarElement: any;
   dlg: any;
-  constructor(public navCtrl: NavController, public menu: MenuController, 
+  constructor(public navCtrl: NavController, public menu: MenuController, public events: Events,
             public platform: Platform, public rest: Rest) {
     this.menu = menu;
     this.tabBarElement = null;
@@ -42,6 +43,7 @@ export class HomePage {
         self.initDlg();
         self.toggleDlg(1);
       }
+      self.events.publish('menu:changed', 'Home');
       self.tabBarElement = document.querySelector('.tabbar.show-tabbar');
       if (self.tabBarElement)
       {

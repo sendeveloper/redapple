@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Events } from 'ionic-angular';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { HomePage } from '../pages/home/home';
@@ -32,7 +33,8 @@ export class MyApp {
         { title: 'About', description: 'About page', component: AboutPage, icon: 'information-circle', index: -1 }
     ];
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, 
-        public rest: Rest) {
+        public events: Events, public rest: Rest) {
+    var self = this;
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
@@ -44,6 +46,11 @@ export class MyApp {
       {
           this.rest.setDeviceNumber(0);
       }
+    });
+
+    events.subscribe('menu:changed', (label) => {
+      self.appPages[0]['description'] = label;
+      self.appPages[0]['title'] = label;
     });
   }
   openPage(page: PageInterface) {
