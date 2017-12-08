@@ -24,7 +24,7 @@ export class TabsPage {
   }
   selectTab(t: number) {
     if (t == 0){
-      console.log(this.navCtrl);
+      // console.log(this.navCtrl);
       this.navCtrl.popToRoot();
     }
     this.tabIndex = t;
