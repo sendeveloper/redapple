@@ -13,7 +13,11 @@ export class TabsPage {
   tab3Root: string = 'PrescriptionReviewPage';
   tabIndex: number;
   constructor(public navParams: NavParams, public rest: Rest) {
-  	this.tabIndex = navParams.data.tabIndex || 0;
+  }
+  ionViewWillEnter() {
+    console.log(this.navParams.data);
+    this.tabIndex = this.navParams.data.tabIndex || 0;
+    console.log(this.tabIndex);
   }
   ionViewDidLoad() {
   	

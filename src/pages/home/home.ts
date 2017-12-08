@@ -37,12 +37,12 @@ export class HomePage {
   ionViewWillEnter() {
     var self = this;
     setTimeout(function() {
-      if (self.rest.getCode() != '')
-      {
-        self.rest.resetData();
-        self.initDlg();
-        self.toggleDlg(1);
-      }
+      // if (self.rest.getCode() != '')
+      // {
+      //   self.rest.resetData();
+      //   self.initDlg();
+      //   self.toggleDlg(1);
+      // }
       self.events.publish('menu:changed', 'Home');
       self.tabBarElement = document.querySelector('.tabbar.show-tabbar');
       if (self.tabBarElement)

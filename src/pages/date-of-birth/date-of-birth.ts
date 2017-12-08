@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, MenuController, Content, Platform 
 
 import { Rest } from '../../providers/rest';
 
+import { TabsPage } from '../tabs/tabs';
 import { PrescriptionListPage } from '../prescription-list/prescription-list';
 
 @IonicPage()
@@ -75,7 +76,8 @@ export class DateOfBirthPage {
       }
       else{
         this.rest.setFirstName(this.data['patient_first_name']);
-        this.navCtrl.push(PrescriptionListPage);
+        this.navCtrl.popToRoot();
+        this.navCtrl.setRoot(TabsPage, {"tabIndex": 1});
       }
     }
   }

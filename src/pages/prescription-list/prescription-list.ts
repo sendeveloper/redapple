@@ -22,7 +22,6 @@ export class PrescriptionListPage {
         public loadingCtrl: LoadingController, public events: Events,
   			public menu: MenuController, public rest: Rest) {
   	this.menu = menu;
-    console.log(this.menu);
     this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
   	this.data = null;
     this.custom_class = {};
