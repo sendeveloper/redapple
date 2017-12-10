@@ -1,11 +1,14 @@
 page-drug-info {
+	.btn-video-container{
+		width: 100%;
+		margin: 10px;
+	}
 	.btn-video{
 	    text-decoration: none;
 	    font-size: 1em;
-	    float: right;
+	    float: left;
 	    padding: 0.1em 0.5em;
 	    color: #e42112;
-	    margin-bottom: 10px;
 	    background: none;
 	}
 }
