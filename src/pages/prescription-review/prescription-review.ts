@@ -20,22 +20,19 @@ import { QuizPage } from '../quiz/quiz';
 export class PrescriptionReviewPage {
   info: any;
   generic_name: string;
-  tabBarElement: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
   				public menu: MenuController, public rest: Rest,
           public http: Http, private sanitizer: DomSanitizer) {
   	this.menu = menu;
-    this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
   }
   ionViewWillEnter() {
     this.generic_name = this.rest.getGenericName();
     if (this.rest.isShowTab()){
-      this.tabBarElement.style.display = 'flex';
-      this.navCtrl.parent._tabs[0].tabTitle = "Exit Review";
+      // this.navCtrl.parent._tabs[0].tabTitle = "Exit Review";
     }
   }
   ionViewWillLeave() {
-    this.navCtrl.parent._tabs[0].tabTitle = "Home";
+    // this.navCtrl.parent._tabs[0].tabTitle = "Home";
   }
   ionViewDidLoad() {
     this.getJsonData();
