@@ -50,6 +50,9 @@ export class HomePage {
     }
     self.events.publish('menu:changed', 'Home');
   }
+  ionViewWillLeave() {
+    
+  }
   dlgClose(mode: number)
   {
     this.toggleDlg(0);
@@ -79,8 +82,6 @@ export class HomePage {
       this.dlg['top'] = (this.platform.height() - this.dlg['height']) / 2 + scrollPos - 30;
     }
     this.dlg['show'] = b;
-  }
-  ionViewWillLeave() {
   }
   showMenu() {
     this.menu.open();
