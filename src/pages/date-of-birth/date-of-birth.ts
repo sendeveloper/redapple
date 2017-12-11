@@ -33,10 +33,14 @@ export class DateOfBirthPage {
     this.dlg['height'] = 100;
 
     events.subscribe('return:home', (id) => {
-      // console.log(id);
-      self.rest.setPreviousTab(id);
-      self.events.publish('home:changed', 'Home');
-      self.navCtrl.popToRoot();
+      console.log(id);
+      if(id != 0)
+      {
+        self.rest.setPreviousTab(id);
+        self.events.publish('home:changed', 'Home');
+      }
+      if (self && self.navCtrl)
+        self.navCtrl.popToRoot();
     });
   }
   ionViewWillEnter() {

@@ -59,9 +59,10 @@ export class MyApp {
     if (page.index) {
       params = { tabIndex: page.index };
     }
-    // console.log(this.nav.getActiveChildNavs());
+    console.log(this.nav.getActiveChildNavs());
     if (this.nav.getActiveChildNavs().length && page.index != -1) {
       this.nav.getActiveChildNavs()[0].slideTo(page.index);
+      
     } else {
       this.nav.setRoot(page.component, params);
     }
