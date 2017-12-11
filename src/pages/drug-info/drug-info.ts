@@ -29,6 +29,7 @@ export class DrugInfoPage {
   }
   ionViewWillEnter() {
     this.rest.getDrugInformation(this);
+    this.navCtrl.parent.superTabsCtrl.showToolbar(false);
   }
   ionViewDidLoad() {
     this.ind = this.navParams.get('index');

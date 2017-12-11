@@ -14,14 +14,13 @@ export class TabsPage {
   tab1Root: string = 'HomePage';
   tab2Root: string = 'PrescriptionListPage';
   tab3Root: string = 'PrescriptionReviewPage';
-  tabIndex: number;
   constructor(public navCtrl: NavController, 
       private superTabsCtrl: SuperTabsController,
       public navParams: NavParams, public rest: Rest) {
   }
   ionViewWillEnter() {
-    this.tabIndex = this.navParams.data.tabIndex || 0;
-    this.superTabs.slideTo(this.tabIndex);
+    var tabIndex = this.navParams.data.tabIndex || 0;
+    this.superTabs.slideTo(tabIndex);
   }
   ionViewDidLoad() {
   	
@@ -36,9 +35,6 @@ export class TabsPage {
   onTabSelect(tab: { index: number; id: string; }) {
     if (tab.index == 0)
       this.hideToolbar();
-    else
-      this.showToolbar();
-    // this.tabIndex = tab.index;
     console.log(`Selected tab: `, tab.index);
   }
 }

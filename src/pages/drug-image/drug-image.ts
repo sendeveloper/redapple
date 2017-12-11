@@ -21,6 +21,7 @@ export class DrugImagePage {
     this.data = null;
   }
   ionViewWillEnter() {
+    this.navCtrl.parent.superTabsCtrl.showToolbar(false);
     this.rest.getDrugImage(this);
   }
   ionViewDidLoad() {

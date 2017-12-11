@@ -26,6 +26,7 @@ export class PrescriptionReviewPage {
   	this.menu = menu;
   }
   ionViewWillEnter() {
+    this.navCtrl.parent.superTabsCtrl.showToolbar(true);
     this.generic_name = this.rest.getGenericName();
     if (this.rest.isShowTab()){
       this.navCtrl.parent._tabs[0].title = "Exit Review";

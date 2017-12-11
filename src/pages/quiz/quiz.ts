@@ -24,7 +24,6 @@ export class QuizPage {
   answered: number;
   item_height: number;
   description: string;
-  tabBarElement: any;
   customClasses: any;
   correctCount: number;
   thank_msg: string;
@@ -54,15 +53,15 @@ export class QuizPage {
     this.dlg['height'] = 100;
     this.customClasses = ["purple", "red", "green", "blue"];
     this.thank_msg = "";
-    this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
   }
   ionViewWillEnter() {
-    rest.getQuizData(this);
+    this.rest.getQuizData(this);
+    console.log(this.navCtrl.parent);
     if (this.rest.isShowTab())
-      this.tabBarElement.style.display = 'none';
+      this.navCtrl.parent.superTabsCtrl.showToolbar(false);
   }
   ionViewWillLeave() {
-    this.navCtrl.parent._tabs[0].tabTitle = "Home";
+
   }
   ionViewDidLoad() {
     
@@ -132,8 +131,7 @@ export class QuizPage {
         this.thank_msg = "Good Job! You scored " + percent + "%";
       else
         this.thank_msg = "You scored " + percent + "%";
-      this.tabBarElement.style.display = 'flex';
-      this.navCtrl.parent._tabs[0].tabTitle = "Exit Review";
+      this.navCtrl.parent.superTabsCtrl.showToolbar(true);
     }
   }
   closeQuiz() {

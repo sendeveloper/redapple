@@ -30,6 +30,7 @@ export class PrescriptionListPage {
     this.data_count = 0;
   }
   ionViewWillEnter() {
+    this.navCtrl.parent.superTabsCtrl.showToolbar(false);
     this.first_name = this.rest.getFirstName();
     this.rest.getDrugProperty(this);
     if (this.rest.isShowTab()){

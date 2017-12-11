@@ -27,7 +27,9 @@ export class DrugResourcePage {
         public http: Http, private sanitizer: DomSanitizer) {
   	this.menu = menu;
   }
-  
+  ionViewWillEnter() {
+    this.navCtrl.parent.superTabsCtrl.showToolbar(false);
+  }
   ionViewDidLoad() {
     this.getJsonData();
   }
