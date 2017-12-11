@@ -5,8 +5,6 @@ import { Events } from 'ionic-angular';
 
 import { Rest } from '../../providers/rest';
 
-import { PrescriptionReviewPage } from '../prescription-review/prescription-review';
-
 @IonicPage()
 @Component({
   selector: 'page-prescription-list',
@@ -63,6 +61,6 @@ export class PrescriptionListPage {
     this.rest.setNdc(data['ndc'])
     this.rest.setGenericName(data['generic_name']);
     console.log(data['generic_name'], this.rest.getGenericName());
-    this.navCtrl.parent.select(2);
+    this.navCtrl.parent.slideTo(2);
   }
 }

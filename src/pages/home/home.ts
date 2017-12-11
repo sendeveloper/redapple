@@ -42,7 +42,6 @@ export class HomePage {
         self.toggleDlg(1);
       }
       self.events.publish('menu:changed', 'Home');
-      console.log(self.navCtrl.parent);
     }, 400);
   }
   toggleDlg(b: number)

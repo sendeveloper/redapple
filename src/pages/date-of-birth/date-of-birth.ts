@@ -70,7 +70,8 @@ export class DateOfBirthPage {
       }
       else{
         this.rest.setFirstName(this.data['patient_first_name']);
-        this.navCtrl.parent.select(1);
+        console.log(this.navCtrl.parent);
+        this.navCtrl.parent.slideTo(1);
       }
     }
   }

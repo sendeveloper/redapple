@@ -1,4 +1,4 @@
-<super-tabs (tabSelect)="onTabSelect($event)" tabsPlacement="bottom">
+<super-tabs [selectedTabIndex]="0" (tabSelect)="onTabSelect($event)" tabsPlacement="bottom">
   <super-tab [root]="tab1Root" [title]="title_home" icon="home"></super-tab>
   <super-tab [root]="tab2Root" title="Rx List" icon="list-box"></super-tab>
   <super-tab [root]="tab3Root" title="Rx Review" icon="eye"></super-tab>

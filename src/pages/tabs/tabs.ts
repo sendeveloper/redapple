@@ -16,7 +16,6 @@ export class TabsPage {
   tab2Root: string = 'PrescriptionListPage';
   tab3Root: string = 'PrescriptionReviewPage';
   tabIndex: number;
-  ind: number;
   constructor(public navCtrl: NavController, 
       private superTabsCtrl: SuperTabsController,
       public navParams: NavParams, public rest: Rest) {
