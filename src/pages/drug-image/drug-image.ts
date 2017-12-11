@@ -19,9 +19,10 @@ export class DrugImagePage {
         public http: Http, private sanitizer: DomSanitizer) {
   	this.menu = menu;
     this.data = null;
-    rest.getDrugImage(this);
   }
-  
+  ionViewWillEnter() {
+    this.rest.getDrugImage(this);
+  }
   ionViewDidLoad() {
     
   }

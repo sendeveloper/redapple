@@ -55,9 +55,9 @@ export class QuizPage {
     this.customClasses = ["purple", "red", "green", "blue"];
     this.thank_msg = "";
     this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
-    rest.getQuizData(this);
   }
   ionViewWillEnter() {
+    rest.getQuizData(this);
     if (this.rest.isShowTab())
       this.tabBarElement.style.display = 'none';
   }

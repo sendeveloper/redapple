@@ -26,9 +26,10 @@ export class DrugInfoPage {
   	this.menu = menu;
     this.data = null;
     this.yt_id = '';
-    rest.getDrugInformation(this);
   }
-  
+  ionViewWillEnter() {
+    this.rest.getDrugInformation(this);
+  }
   ionViewDidLoad() {
     this.ind = this.navParams.get('index');
     this.getJsonData();  
