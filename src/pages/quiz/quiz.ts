@@ -56,7 +56,6 @@ export class QuizPage {
   }
   ionViewWillEnter() {
     this.rest.getQuizData(this);
-    console.log(this.navCtrl.parent);
     if (this.rest.isShowTab())
       this.navCtrl.parent.superTabsCtrl.showToolbar(false);
   }
@@ -131,11 +130,10 @@ export class QuizPage {
         this.thank_msg = "Good Job! You scored " + percent + "%";
       else
         this.thank_msg = "You scored " + percent + "%";
-      this.navCtrl.parent.superTabsCtrl.showToolbar(true);
     }
   }
   closeQuiz() {
-    this.navCtrl.push(PrescriptionReviewPage, {'generic_name': this.generic_name});
+    this.navCtrl.popToRoot();
   }
   goContinue(){
     // if (this.options[this.answered]['correct_answer'].toLowerCase() == 'yes')

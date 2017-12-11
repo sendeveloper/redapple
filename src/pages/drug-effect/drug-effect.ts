@@ -20,11 +20,14 @@ export class DrugEffectPage {
         public http: Http, private sanitizer: DomSanitizer) {
   	this.menu = menu;
     this.data = null;
-    rest.getDrugEffect(this);
+    
   }
-  
+  ionViewWillEnter() {
+    this.navCtrl.parent.superTabsCtrl.showToolbar(false);
+    this.rest.getDrugEffect(this);
+  }
   ionViewDidLoad() {
- 
+  
   }
   showMenu() {
     this.menu.open();

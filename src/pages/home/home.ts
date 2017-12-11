@@ -63,6 +63,7 @@ export class HomePage {
     this.menu.open();
   }
   goNext() {
-    this.navCtrl.push(EnterCodePage);
+    this.navCtrl.setRoot(EnterCodePage);
+    // this.navCtrl.push(EnterCodePage);
   }
 }

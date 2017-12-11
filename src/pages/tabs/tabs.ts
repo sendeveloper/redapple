@@ -33,8 +33,9 @@ export class TabsPage {
     this.superTabsCtrl.showToolbar(true);
   }
   onTabSelect(tab: { index: number; id: string; }) {
-    if (tab.index == 0)
+    if (tab.index == 0){
       this.hideToolbar();
+    }
     console.log(`Selected tab: `, tab.index);
   }
 }
