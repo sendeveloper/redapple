@@ -28,8 +28,10 @@ export class PrescriptionListPage {
     this.custom_class['NO'] = 'blue-text';
 
     this.data_count = 0;
+    
   }
   ionViewWillEnter() {
+
     this.navCtrl.parent.superTabsCtrl.showToolbar(true);
     this.first_name = this.rest.getFirstName();
     this.rest.getDrugProperty(this);

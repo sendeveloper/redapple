@@ -15,13 +15,12 @@ import { EnterCodePage } from '../enter-code/enter-code';
 export class HomePage {
   @ViewChild(Content) content: Content;
   dlg: any;
+  previousTab: number;
   constructor(public navCtrl: NavController, public menu: MenuController, public events: Events,
             public platform: Platform, public rest: Rest) {
     this.menu = menu;
+    this.previousTab = 0;
     this.initDlg();
-  }
-  ionViewDidLoad() {
-    
   }
   initDlg(){
     this.dlg = {};
@@ -32,17 +31,35 @@ export class HomePage {
     this.dlg['width'] = 200;
     this.dlg['height'] = 70;
   }
+  ionViewDidLoad() {
+    
+  }
   ionViewWillEnter() {
     var self = this;
-    setTimeout(function() {
-      if (self.rest.getCode() != '')
-      {
-        self.rest.resetData();
-        self.initDlg();
-        self.toggleDlg(1);
-      }
-      self.events.publish('menu:changed', 'Home');
-    }, 400);
+    if (self.rest.getPreviousTab() != 0)
+    {
+      self.previousTab = self.rest.getPreviousTab();
+      self.rest.setPreviousTab(0);
+      self.initDlg();
+      self.toggleDlg(1);
+    }
+    self.events.publish('menu:changed', 'Home');
+  }
+  dlgClose(mode: number)
+  {
+    this.toggleDlg(0);
+    if (mode == 1){
+      setTimeout(function() {
+        if (self.rest.getCode() != '')
+        {
+          self.rest.resetData();
+        }
+      }, 400);
+    }
+    else{
+      if (this.previousTab != 0)
+        this.navCtrl.parent.slideTo(this.previousTab);
+    }
   }
   toggleDlg(b: number)
   {
@@ -63,7 +80,6 @@ export class HomePage {
     this.menu.open();
   }
   goNext() {
-    this.navCtrl.setRoot(EnterCodePage);
-    // this.navCtrl.push(EnterCodePage);
+    this.navCtrl.push(EnterCodePage);
   }
 }

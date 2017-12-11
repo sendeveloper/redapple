@@ -18,6 +18,7 @@ export class Rest {
   private first_name: string;
   private generic_name: string;
   private loading: Loading;
+  private previous_tab: number;
   constructor(public http: Http) {
     this.resetData();
   }
@@ -29,6 +30,7 @@ export class Rest {
     this.ndc = '';
     this.first_name = '';
     this.generic_name = '';
+    this.previous_tab = 0;
   }
   public isShowTab() { return (this.ndc != '' && this.first_name != '') ? true : false}
   public setCode(c) {this.code = c;}
@@ -41,6 +43,8 @@ export class Rest {
   public getFirstName() {return this.first_name;}
   public setGenericName(n) {this.generic_name = n;}
   public getGenericName() {return this.generic_name;}
+  public setPreviousTab(n) {this.previous_tab = n;}
+  public getPreviousTab() {return this.previous_tab;}
   public setDeviceNumber(device) {
       this.deviceNumber = device;
   }
@@ -58,8 +62,8 @@ export class Rest {
         {
           self.setNdc(result.data[0]['ndc1']);
           self.setCellPhone(result.data[0]['patient_cellphone']);
-          parent.navCtrl.setRoot(transitionPage, {'data': result.data[0]});
-          // parent.navCtrl.push(transitionPage, {'data': result.data[0]});
+          // parent.navCtrl.setRoot(transitionPage, {'data': result.data[0]});
+          parent.navCtrl.push(transitionPage, {'data': result.data[0]});
         }
         else
         {

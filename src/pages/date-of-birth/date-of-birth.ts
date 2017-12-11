@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController, Content, Platform } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 
 import { Rest } from '../../providers/rest';
 
@@ -16,8 +17,10 @@ export class DateOfBirthPage {
   warning_msg: string;
   constructor(public navCtrl: NavController, 
         public navParams: NavParams, 
+        public events: Events,
         public menu: MenuController, public rest: Rest,
         public platform: Platform) {
+    var self = this;
   	this.menu = menu;
   	this.data = this.navParams.get('data');
     this.birthday = '';
@@ -28,6 +31,11 @@ export class DateOfBirthPage {
     this.dlg['top'] = 0;
     this.dlg['width'] = 200;
     this.dlg['height'] = 100;
+
+    events.subscribe('returnView', (id) => {
+      self.rest.setPreviousTab(id);
+      self.navCtrl.popToRoot();
+    });
   }
   ionViewWillEnter() {
 

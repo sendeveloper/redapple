@@ -57,8 +57,7 @@ export class EnterCodePage {
     this.dlg['show'] = b;
   }
   goCancel() {
-    this.navCtrl.setRoot(HomePage);
-    // this.navCtrl.popToRoot();
+    this.navCtrl.popToRoot();
   }
   goContinue() {
     if (this.scode == "")

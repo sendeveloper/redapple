@@ -28,12 +28,14 @@
     <p>To review the prescription the pharmacy is currently filling for you, please continue.</p>
     <a id="home-button10" (click)="goNext()" class="button button-assertive button-block button-clear btn-flat">Continue</a>
   </div>
+
   <div class="ui-popup-screen in" *ngIf="dlg.show!=0" (click)="toggleDlg(0)"></div>
   <div class="ui-popup-container pop in" *ngIf="dlg.show!=0" [ngStyle]="{'max-width': dlg.maxWidth+'px','top': dlg.top+'px', 'left': dlg.left+'px', 'width': dlg.width+'px'}">
       <div data-role="popup" class="ui-body-inherit">
         <h2>Warning!</h2>
-        <p>You have ended the review session.</p>
-        <button class="close_dlg" (click)="toggleDlg(0)">OK</button>
+        <p>You are about to exit prescription review. Is this alright?</p>
+        <button class="close_yes_dlg" (click)="dlgClose(1)">Yes</button>
+        <button class="close_no_dlg" (click)="dlgClose(0)">No</button>
       </div>
   </div>
 </ion-content>

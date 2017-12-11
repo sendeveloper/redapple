@@ -61,7 +61,7 @@ export class MyApp {
     }
     // console.log(this.nav.getActiveChildNavs());
     if (this.nav.getActiveChildNavs().length && page.index != -1) {
-      this.nav.getActiveChildNavs()[0].select(page.index);
+      this.nav.getActiveChildNavs()[0].slideTo(page.index);
     } else {
       this.nav.setRoot(page.component, params);
     }

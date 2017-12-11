@@ -26,16 +26,18 @@ page-home {
 			font-size:16px;
 		}
 	}
-	.ui-popup-container h2{
-		color: #f00;
-	}
-	.close_dlg {
+	.close_yes_dlg, .close_no_dlg {
 	    text-decoration: none;
 	    font-size: 1em;
 	    float: right;
 	    padding: 0.1em 0.5em;
-	    color: #e42112;
 	    margin-bottom: 10px;
 	    background: none;
+	}
+	.close_no_dlg{
+		color: #e42112;
+	}
+	.close_yes_dlg{
+		color: #2979FF;
 	}
 }
