@@ -3,9 +3,6 @@ import { IonicPage, NavController, NavParams, MenuController, Content, Platform 
 
 import { Rest } from '../../providers/rest';
 
-import { TabsPage } from '../tabs/tabs';
-import { PrescriptionListPage } from '../prescription-list/prescription-list';
-
 @IonicPage()
 @Component({
   selector: 'page-date-of-birth',
@@ -17,14 +14,12 @@ export class DateOfBirthPage {
   birthday: string;
   dlg: any;
   warning_msg: string;
-  tabBarElement: any;
   constructor(public navCtrl: NavController, 
         public navParams: NavParams, 
         public menu: MenuController, public rest: Rest,
         public platform: Platform) {
   	this.menu = menu;
   	this.data = this.navParams.get('data');
-    this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
     this.birthday = '';
     this.dlg = {};
     this.dlg['show'] = 0;
@@ -35,11 +30,10 @@ export class DateOfBirthPage {
     this.dlg['height'] = 100;
   }
   ionViewWillEnter() {
-    if (!this.rest.isShowTab())
-      this.tabBarElement.style.display = 'none';
+
   }
   ionViewWillLeave() {
-    this.tabBarElement.style.display = 'flex';
+
   }
   ionViewDidLoad() {
   	
