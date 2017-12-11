@@ -36,16 +36,15 @@ export class DrugInfoPage {
   showMenu() {
     this.menu.open();
   }
-  youtube_parser(url){
+  youtubeParser(url){
     var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
     var match = url.match(regExp);
     return (match&&match[7].length==11)? match[7] : false;
   }
   setData(d){
     this.data = d;
-    console.log(this.ind);
     if (this.ind == 3){
-      // if (this.plt.is('cordova')){
+      if (this.plt.is('cordova')){
         var src = this.data['drug_video'];
         var b=src.match(/(<iframe.+?<\/iframe>)/g);
         if (b != null)
@@ -55,16 +54,17 @@ export class DrugInfoPage {
           {
             var match = b[i].match(/\ssrc=(?:(?:'([^']*)')|(?:"([^"]*)")|([^\s]*))/i);
             var url = match[1] || match[2] || match[3];
-            var id = this.youtube_parser(url);
+            var id = this.youtubeParser(url);
             if (id != false)
             {
               src = src.replace(b[i], '');
               this.yt_id = id;
+              console.log(this.yt_id);
             }
           }
           this.data['drug_video'] = src;
         }
-      // }
+      }
     }
   }
   getJsonData() {

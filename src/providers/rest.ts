@@ -51,28 +51,24 @@ export class Rest {
     var url = this.getApiURL() + "flag=check_active_code&code=" + this.code;
     var self = this;
     this.showLoading(parent);
-    try{
-      this.http.get(url).map(response => response.json()).subscribe(result => {
-        setTimeout(() => {
-          self.hideLoading();
-          if (result.status_code == 200 && result.count>0)
-          {
-            self.setNdc(result.data[0]['ndc1']);
-            self.setCellPhone(result.data[0]['patient_cellphone']);
-            parent.navCtrl.push(transitionPage, {'data': result.data[0]});
-          }
-          else
-          {
-            parent.toggleDlg(1);
-          }
-        });
-      }),
-      err => {
+    this.http.get(url).map(response => response.json()).subscribe(result => {
+      setTimeout(() => {
         self.hideLoading();
-        parent.toggleDlg(1);
-      }
-    }catch(e){
-      console.log(e);
+        if (result.status_code == 200 && result.count>0)
+        {
+          self.setNdc(result.data[0]['ndc1']);
+          self.setCellPhone(result.data[0]['patient_cellphone']);
+          parent.navCtrl.push(transitionPage, {'data': result.data[0]});
+        }
+        else
+        {
+          parent.toggleDlg(1);
+        }
+      });
+    }),
+    err => {
+      self.hideLoading();
+      parent.toggleDlg(1);
     }
   }
   public getDrugProperty(parent) {
