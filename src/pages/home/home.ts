@@ -14,12 +14,10 @@ import { EnterCodePage } from '../enter-code/enter-code';
 })
 export class HomePage {
   @ViewChild(Content) content: Content;
-  tabBarElement: any;
   dlg: any;
   constructor(public navCtrl: NavController, public menu: MenuController, public events: Events,
             public platform: Platform, public rest: Rest) {
     this.menu = menu;
-    this.tabBarElement = null;
     this.initDlg();
   }
   ionViewDidLoad() {
@@ -44,11 +42,7 @@ export class HomePage {
         self.toggleDlg(1);
       }
       self.events.publish('menu:changed', 'Home');
-      self.tabBarElement = document.querySelector('.tabbar.show-tabbar');
-      if (self.tabBarElement)
-      {
-          self.tabBarElement.style.display = 'none';
-      }
+      console.log(self.navCtrl.parent);
     }, 400);
   }
   toggleDlg(b: number)

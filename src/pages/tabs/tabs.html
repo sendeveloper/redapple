@@ -1,5 +1,5 @@
-<ion-tabs selectedIndex="tabIndex" #bottomTab>
-  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home" (ionSelect)="selectTab(0)"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="Rx List" tabIcon="list-box" (ionSelect)="selectTab(1)"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Rx Review" tabIcon="eye" (ionSelect)="selectTab(2)"></ion-tab>
-</ion-tabs>
+<super-tabs (tabSelect)="onTabSelect($event)" tabsPlacement="bottom">
+  <super-tab [root]="tab1Root" [title]="title_home" icon="home"></super-tab>
+  <super-tab [root]="tab2Root" title="Rx List" icon="list-box"></super-tab>
+  <super-tab [root]="tab3Root" title="Rx Review" icon="eye"></super-tab>
+</super-tabs>

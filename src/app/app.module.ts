@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { SMS } from '@ionic-native/sms';
+import { SuperTabsModule } from '../ionic2-super-tabs/src';
 
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
@@ -18,9 +19,10 @@ import { Rest } from '../providers/rest';
   ],
   imports: [
     BrowserModule,
+    SuperTabsModule.forRoot(),
     IonicModule.forRoot(MyApp, {
       preloadModules: true,
-      backButtonText: ''
+      backButtonText: '',
     }),
     HttpModule
   ],

@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavParams, NavController, Tabs } from 'ionic-angular';
+import { SuperTabsController } from '../../ionic2-super-tabs/src';
+import { SuperTabs } from "../../ionic2-super-tabs/src/components/super-tabs";
 
 import { Rest } from '../../providers/rest';
 
@@ -8,25 +10,41 @@ import { Rest } from '../../providers/rest';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-  @ViewChild('bottomTab') tabRef: Tabs;
+  @ViewChild(SuperTabs) superTabs: SuperTabs;
+  title_home: string = 'Home';
   tab1Root: string = 'HomePage';
   tab2Root: string = 'PrescriptionListPage';
   tab3Root: string = 'PrescriptionReviewPage';
   tabIndex: number;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public rest: Rest) {
+  ind: number;
+  constructor(public navCtrl: NavController, 
+      private superTabsCtrl: SuperTabsController,
+      public navParams: NavParams, public rest: Rest) {
+    this.title_home = 'Home';
   }
   ionViewWillEnter() {
     this.tabIndex = this.navParams.data.tabIndex || 0;
-    this.tabRef.select(this.tabIndex);
+    this.superTabs.slideTo(this.tabIndex);
   }
   ionViewDidLoad() {
   	
   }
-  selectTab(t: number) {
-    if (t == 0){
-      console.log(this.navCtrl);
-      this.navCtrl.popToRoot();
-    }
-    this.tabIndex = t;
+  setHomeTitle(t){
+    this.title_home = t;
+  }
+  hideToolbar() {
+    this.superTabsCtrl.showToolbar(false);
+  }
+  
+  showToolbar() {
+    this.superTabsCtrl.showToolbar(true);
+  }
+  onTabSelect(tab: { index: number; id: string; }) {
+    if (tab.index == 0)
+      this.hideToolbar();
+    else
+      this.showToolbar();
+    // this.tabIndex = tab.index;
+    console.log(`Selected tab: `, tab.index);
   }
 }
