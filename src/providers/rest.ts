@@ -62,7 +62,6 @@ export class Rest {
         {
           self.setNdc(result.data[0]['ndc1']);
           self.setCellPhone(result.data[0]['patient_cellphone']);
-          // parent.navCtrl.setRoot(transitionPage, {'data': result.data[0]});
           parent.navCtrl.push(transitionPage, {'data': result.data[0]});
         }
         else

@@ -32,8 +32,10 @@ export class DateOfBirthPage {
     this.dlg['width'] = 200;
     this.dlg['height'] = 100;
 
-    events.subscribe('returnView', (id) => {
+    events.subscribe('return:home', (id) => {
+      console.log(id);
       self.rest.setPreviousTab(id);
+      self.events.publish('home:changed', 'Home');
       self.navCtrl.popToRoot();
     });
   }

@@ -18,9 +18,14 @@ export class HomePage {
   previousTab: number;
   constructor(public navCtrl: NavController, public menu: MenuController, public events: Events,
             public platform: Platform, public rest: Rest) {
+    var self = this;
     this.menu = menu;
     this.previousTab = 0;
     this.initDlg();
+
+    events.subscribe('home:changed', (id) => {
+      this.toggleDlg(1);
+    });
   }
   initDlg(){
     this.dlg = {};
@@ -49,6 +54,7 @@ export class HomePage {
   {
     this.toggleDlg(0);
     if (mode == 1){
+      var self = this;
       setTimeout(function() {
         if (self.rest.getCode() != '')
         {
@@ -80,6 +86,7 @@ export class HomePage {
     this.menu.open();
   }
   goNext() {
+    this.rest.setPreviousTab(0);
     this.navCtrl.push(EnterCodePage);
   }
 }

@@ -39,12 +39,8 @@ export class TabsPage {
   onTabSelect(tab: { index: number; id: string; }) {
     if (tab.index == 0){
       this.hideToolbar();
-      this.events.publish('returnView', 0);
-      // if (this.previousTab == 1){
-      //   this.events.publish('returnView', this.previousTab);
-      // }
+      this.events.publish('return:home', this.previousTab);
     }
-    console.log(this.navCtrl.length());
     console.log(`Selected tab: `, tab.index, this.previousTab);
     this.previousTab = tab.index;
   }
