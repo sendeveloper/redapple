@@ -28,20 +28,20 @@ export class PrescriptionListPage {
     this.custom_class['NO'] = 'blue-text';
 
     this.data_count = 0;
-    this.first_name = rest.getFirstName();
-    rest.getDrugProperty(this);
   }
   ionViewWillEnter() {
+    this.first_name = this.rest.getFirstName();
+    this.rest.getDrugProperty(this);
     if (this.rest.isShowTab()){
       this.events.publish('menu:changed', 'Exit Review');
-      // this.navCtrl.parent._tabs[0].tabTitle = "Exit Review";
+      this.navCtrl.parent._tabs[0].title = "Exit Review";
     }
   }
   reloadData() {
     this.rest.getDrugProperty(this);
   }
   ionViewWillLeave() {
-    // this.navCtrl.parent._tabs[0].tabTitle = "Home";
+    this.navCtrl.parent._tabs[0].title = "Home";
   }
   ionViewDidLoad() {
     
@@ -49,6 +49,11 @@ export class PrescriptionListPage {
   setData(d) {
     this.data = d;
     this.data_count = this.data.length;
+    if (this.data_count > 0)
+    {
+      this.rest.setNdc(this.data[0]['ndc'])
+      this.rest.setGenericName(this.data[0]['generic_name']);
+    }
   }
   showMenu() {
     this.menu.open();
@@ -56,7 +61,6 @@ export class PrescriptionListPage {
   goReview(data) {
     this.rest.setNdc(data['ndc'])
     this.rest.setGenericName(data['generic_name']);
-    console.log(data['generic_name'], this.rest.getGenericName());
     this.navCtrl.parent.slideTo(2);
   }
 }

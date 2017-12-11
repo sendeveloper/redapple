@@ -28,11 +28,11 @@ export class PrescriptionReviewPage {
   ionViewWillEnter() {
     this.generic_name = this.rest.getGenericName();
     if (this.rest.isShowTab()){
-      // this.navCtrl.parent._tabs[0].tabTitle = "Exit Review";
+      this.navCtrl.parent._tabs[0].title = "Exit Review";
     }
   }
   ionViewWillLeave() {
-    // this.navCtrl.parent._tabs[0].tabTitle = "Home";
+    this.navCtrl.parent._tabs[0].title = "Home";
   }
   ionViewDidLoad() {
     this.getJsonData();

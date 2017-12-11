@@ -11,7 +11,6 @@ import { Rest } from '../../providers/rest';
 })
 export class TabsPage {
   @ViewChild(SuperTabs) superTabs: SuperTabs;
-  title_home: string = 'Home';
   tab1Root: string = 'HomePage';
   tab2Root: string = 'PrescriptionListPage';
   tab3Root: string = 'PrescriptionReviewPage';
@@ -19,7 +18,6 @@ export class TabsPage {
   constructor(public navCtrl: NavController, 
       private superTabsCtrl: SuperTabsController,
       public navParams: NavParams, public rest: Rest) {
-    this.title_home = 'Home';
   }
   ionViewWillEnter() {
     this.tabIndex = this.navParams.data.tabIndex || 0;
@@ -27,9 +25,6 @@ export class TabsPage {
   }
   ionViewDidLoad() {
   	
-  }
-  setHomeTitle(t){
-    this.title_home = t;
   }
   hideToolbar() {
     this.superTabsCtrl.showToolbar(false);
