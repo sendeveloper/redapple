@@ -59,7 +59,7 @@ export class PrescriptionListPage {
     }
   }
   reloadData() {
-    // this.rest.getDrugProperty(this);
+    this.rest.getDrugProperty(this);
   }
   ionViewWillLeave() {
     this.navCtrl.parent._tabs[0].title = "Home";
@@ -156,7 +156,7 @@ export class PrescriptionListPage {
     }
     else if (b == 8) {
       b = 0;
-      this.datetime = new Date('December 17, 1995 03:24:00');
+      this.datetime = 'December 17, 1995 03:24:00';
       this.disableRemind = true;
     }
     this.dlg['show'] = b;

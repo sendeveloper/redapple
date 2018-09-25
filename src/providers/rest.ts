@@ -214,7 +214,7 @@ export class Rest {
     this.showLoading(parent);
     this.http.get(url).map(response => response.json()).subscribe(result => {
         setTimeout(() => {
-          self.hideLoading();
+          
           console.log(result);
         });
       }),
