@@ -35,6 +35,12 @@
     </div>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
+
+    <div class="button-bar">
+      <a (click)="remindButton()" class="button button-assertive button-outline">Remind Me</a>
+      <a (click)="contactPharmacy()" class="button button-assertive button-outline contact">Contact Pharmacy</a>
+      <a (click)="deliverButton()" class="button button-assertive button-outline">Deliver</a>
+    </div>
     <h4 class="center">{{data_count}} Rx found:(output # in db)</h4>
     <ng-container *ngFor="let each of data;let i=index">
       <div class="list card padded">
@@ -50,10 +56,40 @@
         </p>
         <div class="spacer" style="height: 25px;"></div>
         <p class="center">
-          <a (click)="goReview(each)" class="button button-calm" style="width: 200px;">Learn More</a>
+          <a (click)="goReview(each)" class="button button-calm" style="width: 200px;">Learn About Rx #{{i+1}}</a>
         </p>
       </div>
     </ng-container>
   </div> 
+  <div class="ui-popup-screen in" *ngIf="dlg.show%2==1" (click)="toggleDlg(0)"></div>
+  <div class="ui-popup-container pop in" *ngIf="dlg.show==1" [ngStyle]="{'max-width': dlg.maxWidth+'px','top': dlg.top+'px', 'left': dlg.left+'px', 'width': dlg.width+'px'}">
+      <div data-role="popup" class="ui-body-inherit">
+        <p>Deliveries are made after 7 pm</p>
+        <a class="close" (click)="toggleDlg(2)">OK</a>
+      </div>
+  </div>
+  <div class="ui-popup-container pop in" *ngIf="dlg.show==3" [ngStyle]="{'max-width': dlg.maxWidth+'px','top': dlg.top+'px', 'left': dlg.left+'px', 'width': dlg.width+'px'}">
+      <div data-role="popup" class="ui-body-inherit">
+        <ion-textarea 
+            placeholder="Your message" 
+            [(ngModel)]="message" 
+            name="note" autocomplete="on" autocorrect="on">
+        </ion-textarea>
+        <a class="close" (click)="toggleDlg(4)">Send</a>
+      </div>
+  </div>
+  <div class="ui-popup-container pop in" *ngIf="dlg.show==5" [ngStyle]="{'max-width': dlg.maxWidth+'px','top': dlg.top+'px', 'left': dlg.left+'px', 'width': dlg.width+'px'}">
+      <div data-role="popup" class="ui-body-inherit">
+        <ion-datetime displayFormat="MM/DD/YYYY HH:mm:ss" id="datetime" placeholder="Reminder Time" [(ngModel)]="datetime"></ion-datetime>
+        <ion-item>
+          <ion-label>Add sound?</ion-label>
+          <ion-checkbox [(ngModel)]="add_sound"></ion-checkbox>
+        </ion-item>
+        <div class="reminder-buttons">
+          <a class="close" (click)="toggleDlg(6)">Update</a>
+          <a class="close" (click)="toggleDlg(8)">Delete</a>
+        </div>
+      </div>
+  </div>
 
 </ion-content>

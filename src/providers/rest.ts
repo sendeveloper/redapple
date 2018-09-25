@@ -206,6 +206,23 @@ export class Rest {
         self.hideLoading();
       }
   }
+  public deliverMessage(parent) {
+    var subject = "Patient request delivery";
+    var msg = "Deliveries are made after 7pm";
+    var url = this.getApiURL() + "flag=deliver&phone=" + this.getCellPhone() + "&subject=" + subject + "&msg=" + msg;
+    var self = this;
+    this.showLoading(parent);
+    this.http.get(url).map(response => response.json()).subscribe(result => {
+        setTimeout(() => {
+          self.hideLoading();
+          console.log(result);
+        });
+      }),
+      err => {
+        self.hideLoading();
+      }
+
+  }
   public changeDateFormatUTC(date) {
     var d = new Date(date);
     var offset = d.getTimezoneOffset() * 60 * 1000;

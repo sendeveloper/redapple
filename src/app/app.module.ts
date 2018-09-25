@@ -4,7 +4,10 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { SMS } from '@ionic-native/sms';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SuperTabsModule } from '../ionic2-super-tabs/src';
+
+import { HttpClientModule } from '@angular/common/http'
 
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
@@ -34,6 +37,7 @@ import { Rest } from '../providers/rest';
     StatusBar,
     SplashScreen,
     SMS,
+    LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Rest,
     YoutubeVideoPlayer
