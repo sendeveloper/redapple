@@ -4,7 +4,6 @@ import { LoadingController } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 import { SMS } from '@ionic-native/sms';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import { Observable } from 'rxjs/Rx';
 
 import { Rest } from '../../providers/rest';
 
